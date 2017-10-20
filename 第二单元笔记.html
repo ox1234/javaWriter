@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 6.12.3 (455521)"/><meta name="altitude" content="1528.6923828125"/><meta name="author" content="923435274@qq.com"/><meta name="created" content="2017-06-20 07:44:58 +0000"/><meta name="latitude" content="36.08"/><meta name="longitude" content="103.852"/><meta name="source" content="desktop.mac"/><meta name="updated" content="2017-07-02 02:22:26 +0000"/><title>第二单元笔记</title></head><body>
+
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>运算符的优先级</h1>
+  </td></tr>
+</tbody></table>
+<div><span style=""><img src="%E7%AC%AC%E4%BA%8C%E5%8D%95%E5%85%83%E7%AC%94%E8%AE%B0.resources/timg.jpeg" height="620" width="744"/></span><br/></div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>交换两个变量的值练习</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079934,103.851662"><b>Map</b></a><br/>
+  </td></tr>
+</tbody></table>
+<div>public class SwapVarDemo{</div><div>    public static void main(String[] args){</div><div>        int a=10;</div><div>        int b=20;</div><div>        int temp=a;//把a的值赋给临时变量temp</div><div>        a=b;//把b的值存储在a中</div><div>        b=temp;</div><div><br/></div><div>        System.out.println("a="+a+",b="+b);</div><div>    }</div><div>}</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>移位操作</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079934,103.851662"><b>Map</b></a><br/>
+  </td></tr>
+</tbody></table>
+<div>&lt;&lt;：将操作数的二进制码整体左移指定位数，左移之后的空格使用“0”补充</div><div>&gt;&gt;：将操作数的二进制码整体右移指定位数，右移之后的空使用“符号位”来补充</div><div>            若是正数使用“0”填充<br/></div><div>            若是负数使用“1”填充<br/></div><div>&gt;&gt;&gt;：将操作数的二进制码整体右移指定位数，右移之后的空位使用“0”来补充</div><div><br/></div><div>public class Hello{</div><div>    public static void main(String[] args){</div><div>        </div><div>        //移位操作</div><div>        /*</div><div>            2的二进制：</div><div>            000000000_00000000_00000000_00000010</div><div>            左移3位</div><div>            000000_00000000_00000000_00000010000</div><div>            右移3位</div><div>            000000000_00000000_00000000_00000010</div><div>        */</div><div>        System.out.println(2&lt;&lt;3);//16</div><div>        /*</div><div>            -16</div><div>            原码：100000_00000000_00000000_00000010000</div><div>            反码：111111_11111111_11111111_11111101111</div><div>            补码：111111_11111111_11111111_11111110000</div><div>            右移3位:111111111_11111111_11111111_11111110(-2的补码)</div><div>        */</div><div>        System.out.println(-16&gt;&gt;3);//-2</div><div>        System.out.println(-16&gt;&gt;&gt;3);</div><div>    }</div><div>}</div><div><br/></div><div><br/></div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>位运算符</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079957,103.851706"><b>Map</b></a><br/>
+  </td></tr>
+</tbody></table>
+<div><img src="%E7%AC%AC%E4%BA%8C%E5%8D%95%E5%85%83%E7%AC%94%E8%AE%B0.resources/timg-2.jpeg" height="222" width="568"/><br/></div><div>遵循规则</div><div>&amp;：参与运算的两个数，若相应位数的值都为1，则该位结果是1，否则是0</div><div>|：参与运算的两个数相应位中只要有一个1，结果就是1</div><div>^：参与运算的两个数相应位相同则结果为0，否则为1</div><div>～：表示把每个二进制位的“1”换成“0”，把“0”换成“1”</div><div><br/></div><div>boolean的true和false在底层使用一位的1和0表示</div><div>true：1</div><div>false：0</div><div><br/></div><div>public class BitOperatorDemo{</div><div>    public static void main(String[] args){</div><div>        /*</div><div>            遵循规则</div><div>            &amp;：参与运算的两个数，若相应位数的值都为1，则该位结果是1，否则是0</div><div>            |：参与运算的两个数相应位中只要有一个1，结果就是1</div><div>            ^：参与运算的两个数相应位相同则结果为0，否则为1</div><div>            ～：表示把每个二进制位的“1”换成“0”，把“0”换成“1”</div><div><br/></div><div>            3的二进制:00000011</div><div>            5的二进制:00000101</div><div><br/></div><div>                00000011</div><div>            &amp;    00000101</div><div>            ----------------</div><div>                00000001</div><div><br/></div><div>                00000011</div><div>            |    00000101</div><div>            ----------------</div><div>                00000111</div><div><br/></div><div>                00000011</div><div>            ^    00000101</div><div>            ----------------</div><div>                00000110</div><div><br/></div><div>                </div><div>            ~    00000101</div><div>            ----------------</div><div>                11111010</div><div><br/></div><div>        */</div><div>            </div><div>            System.out.println(3&amp;5);//1</div><div>            System.out.println(3|5);//7</div><div>            System.out.println(3^5);//6</div><div>            System.out.println(~5);//-6</div><div><br/></div><div>    }</div><div>}</div><div><br/></div><div><br/></div><div><br/></div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>逻辑运算符</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079952,103.851742"><b>Map</b></a><br/>
+  </td></tr>
+</tbody></table>
+<div><img src="%E7%AC%AC%E4%BA%8C%E5%8D%95%E5%85%83%E7%AC%94%E8%AE%B0.resources/timg_1.jpeg" height="214" width="516"/><br/></div><div>用于操作两个boolean类型的变量或常量，结果类型也是boolean</div><div>语法格式为：boolean result=表达式A   逻辑运算符   表达式B</div><div>------------------------------------------------------------------------</div><div><br/></div><div>//逻辑运算符</div><div>public class LogiclOperatorDemo{</div><div>    public static void main(String[] args){</div><div>        /*</div><div>            与：boolean ret=boolean表达式  与。boolean表达式B</div><div>                两个boolean表达式都为true，结果才是true，其他情况ret为false</div><div>            &amp;:位与</div><div>            &amp;&amp;：短路与</div><div><br/></div><div>            区别：</div><div>            &amp;：如果A表达式为false，也会判断B表达式，再返回false</div><div>            &amp;&amp;：如果A表达式为false，则不再判断B表达式，直接返回false</div><div><br/></div><div>            效率：短路与效率最高</div><div><br/></div><div>            或：boolean ret=boolean表达式  与。boolean表达式B</div><div>                两个boolean表达式都为flase，结果才是false，其他情况ret为true</div><div>            |:即使A表达式为true，也会执行B表达式，无论B表达式结果是什么都是true</div><div>            ||：短路或</div><div>                只要A表达式为true，立即返回true，不再执行B表达式</div><div><br/></div><div>        */</div><div><br/></div><div>        System.out.println(true&amp;false);//false</div><div>        System.out.println(true&amp;true);//true</div><div>        System.out.println(false&amp;true);//flase</div><div>        System.out.println(false&amp;false);//false</div><div>        System.out.println("---------------------");</div><div>        System.out.println(true&amp;&amp;false);//false</div><div>        System.out.println(true&amp;&amp;true);//true</div><div>        System.out.println(false&amp;&amp;true);//flase</div><div>        System.out.println(false&amp;&amp;false);//false</div><div>        System.out.println("---------------------");</div><div>        //System.out.println(false&amp;(1/0==1));//有错误，证明(1/0==1)执行了</div><div>        //System.out.println(false&amp;&amp;(1/0==1));//没有错误，证明(1/0==1) 没有被执行</div><div>        System.out.println(true|false);//true</div><div>        System.out.println(true|true);//true</div><div>        System.out.println(false|true);//true</div><div>        System.out.println(false|false);//false</div><div>        System.out.println("---------------------");</div><div>        System.out.println(true||false);//true</div><div>        System.out.println(true||true);//true</div><div>        System.out.println(false||true);//true</div><div>        System.out.println(false||false);//false</div><div>        System.out.println("---------------------");</div><div>        System.out.println(true^false);//true</div><div>        System.out.println(true^true);//false</div><div>        System.out.println(false^true);//true</div><div>        System.out.println(false^false);//false</div><div>        System.out.println("---------------------");</div><div>        System.out.println(!true);//false</div><div>        System.out.println(!false);//true</div><div><br/></div><div><br/></div><div>    }</div><div>}</div><div><br/></div><div><br/></div><div><br/></div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>分页业务逻辑算法</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079969,103.851732"><b>Map</b></a><br/>
+  </td></tr>
+</tbody></table>
+<div>//三元运算符载分页业务逻辑中使用</div><div>public class PageDemo{</div><div>    public static void main(String[] args){</div><div>        /*</div><div>            需求：给出一共有46条数据，要求每一页最多10条数据</div><div>            计算：一共要多少页</div><div>        */</div><div>        int totalCount=78;</div><div>        int pageSize=10;</div><div>        //总页数</div><div>        int num=(int)totalCount/pageSize;</div><div>        int totalPage=totalCount%pageSize==0?num:++num;</div><div><br/></div><div>        System.out.println(totalPage);</div><div>        //上一页</div><div>        int currentPage=5;</div><div>        int prevPage=currentPage==1?1:currentPage-1;</div><div>        System.out.println(prevPage);</div><div>        //下一页</div><div>        int prevPage2=currentPage==totalPage?totalPage:currentPage+1;</div><div>        System.out.println(prevPage2);</div><div>    }</div><div>}</div><div><br/></div><div><br/></div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>三元运算符</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079905,103.851666"><b>Map</b></a><br/>
+  </td></tr>
+</tbody></table>
+<div>三元运算符：表示有三个元素参与的表达式，所以又称为三目运算符，其语义表示if-else</div><div><br/></div><div>public class TernaryOperatorDemo{</div><div>    public static void main(String[] args){</div><div>        //现在给出一个小数，需要求出其四舍五入后的结果，如何完成该功能？</div><div>        double num=3.51;</div><div>        /*</div><div>            获取3.49的整数部分==3；</div><div>            获取3.49的小数部分==3.49-3--&gt;0.49</div><div>            把0.49与0.5做比较</div><div>                0.49&gt;=0.5--&gt;3+1</div><div>                0.49&lt;0.5--&gt;3</div><div><br/></div><div>            三元运算符,三目运算符</div><div>            数据类型 变量=boolean表达式 ？值1:值2</div><div><br/></div><div>            如果：boolean表达式结果为true，三元运算表达式结果就是值1</div><div>                 boolean表达式结果为false，三元运算符表达式结果就是值2</div><div>        */</div><div>        int num1=(int)num;//整数部分</div><div>        double num2=num-num1;//小数部分</div><div><br/></div><div>        int result=num2&gt;=0.5?num1+1:num1;</div><div><br/></div><div><br/></div><div><br/></div><div>        System.out.println(result);</div><div>        //两个数球最大值／最小值</div><div>        int a=20;</div><div>        int b=10;</div><div>        int max=a&gt;b?a:b;</div><div>        System.out.println(max);</div><div>        //判断一个数是奇数还是偶数</div><div>        /*</div><div>            判断一个数的奇偶，只需要判断除以2以后的余数是不是0</div><div>            不能直接判断余数是否为1</div><div>        */</div><div><br/></div><div>        int c=11;</div><div>        String s1="这个数是奇数";</div><div>        String s2="这个数是偶数";</div><div><br/></div><div>        String result1=c%2==0?s2:s1;</div><div>        System.out.println(result1);</div><div>    }</div><div>}</div><div><br/></div><div><br/></div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>比较运算符</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079930,103.851689"><b>Map</b></a><br/>
+  </td></tr>
+</tbody></table>
+<div><img src="%E7%AC%AC%E4%BA%8C%E5%8D%95%E5%85%83%E7%AC%94%E8%AE%B0.resources/timg-3.jpeg" height="202" width="651"/><br/></div><div><br/></div><div>用于比较两个变量或常量之间的关系，结果是boolean类型。</div><div><br/></div><div>public class ComparisionOperatorDemo{</div><div>    public static void main(String[] args){</div><div>        boolean b1=4==4;</div><div>        System.out.println(b1);//true</div><div>        System.out.println(4!=4);//false</div><div>        System.out.println(3!=4);//true</div><div>        System.out.println(100&gt;5);//true</div><div>        System.out.println(5&lt;100);//true</div><div>        System.out.println(100&gt;100);//false</div><div>        System.out.println(100&gt;=100);//true</div><div>        System.out.println(100&lt;=100);//true</div><div>    }</div><div>}</div><div><br/></div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>赋值运算符</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079906,103.851687"><b>Map</b></a><br/>
+  </td></tr>
+</tbody></table>
+<div><img src="%E7%AC%AC%E4%BA%8C%E5%8D%95%E5%85%83%E7%AC%94%E8%AE%B0.resources/timg-2_1.jpeg" height="144" width="443"/><br/></div><div><br/></div><div>//++和--的问题</div><div>public class AssigningOperator{</div><div>    public static void main(String[] args){</div><div>        //功能就是，给变量赋值</div><div>        String name ;</div><div>        name ="Will";</div><div>        /*</div><div>            1、声明int类型变量age</div><div>            2、在内存中储存常量数据17</div><div>            3、把17赋值给age</div><div>        */</div><div>        //声明一个int类型变量，并设置初始值为17</div><div>        int age=17;</div><div><br/></div><div>        System.out.println("-------------");</div><div>        /*</div><div>            +=赋值符号：中间不能打空格，自带隐式类型转换</div><div>            int a=10</div><div>            a+=5等价于a=(int)(a+5);</div><div>        */</div><div>        int a=10;</div><div>        a += 5;</div><div>        System.out.println(a);//15</div><div><br/></div><div>        short s=30;</div><div>        //s=s+5;</div><div>        s+=5;</div><div>        System.out.println(s);</div><div>    }</div><div>}</div><div><br/></div><div><br/></div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>++与--详解</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079912,103.851653"><b>Map</b></a><br/>
+  </td></tr>
+</tbody></table>
+<div>1、++和—详解：都只能操作变量，不能操作常量</div><div>++前置情况</div><div>                ++a；</div><div>                表示a变量自身先加1，再运算</div><div>++后置情况</div><div>                a++；</div><div>                表示a变量自身先加1，把递增1之前的原始值拿去做运算</div><div><br/></div><div>//++和--的问题</div><div>public class ArithmeticOperatorDemo2{</div><div>    public static void main(String[] args){</div><div>        /*</div><div>            ++前置情况</div><div>                ++a；</div><div>                表示a变量自身先加1，再运算</div><div>            ++后置情况</div><div>                a++；</div><div>                表示a变量自身先加1，把递增1之前的原始值拿去做运算</div><div>        */</div><div><br/></div><div>        int a1=5;</div><div>        int b1=++a1;//a1=a1+1</div><div>        System.out.println("a1="+a1+",b1="+b1);//a1=6,b1=6</div><div>        System.out.println("-------------------");</div><div>        int a2=5;</div><div>        int b2=a2++;//a2(5)+1</div><div>        System.out.println("a2="+a2+",b2="+b2);//a2=6,b2=5</div><div>    }</div><div>}</div><div><br/></div><div><br/></div><div><br/></div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>算术运算符</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079966,103.851720"><b>Map</b></a><br/>
+  </td></tr>
+</tbody></table>
+<div>用来处理四则运算的符号</div><div>1、加号</div><div>2、除号</div><div>        1、整数在使用除号操作时，得到的结果仍为整数（小数部分忽略）。当整数除以0的时候，会引发算术异常</div><div>        2、正无穷大（Infinity):当一个正浮点类型数除以-时，或者正整数除以0.0时；</div><div>        3、负无穷大（-Infinity)：当一个负浮点类型数除以0时，或者人负整数除以0.0时；</div><div>        4、NaN：当0.0除以0.0时；</div><div>3、取模：求余数</div><div><br/></div><div><br/></div><div><img src="%E7%AC%AC%E4%BA%8C%E5%8D%95%E5%85%83%E7%AC%94%E8%AE%B0.resources/timg_2.jpeg" height="145" width="451"/><br/></div><div><br/></div><div><br/></div><div><br/></div><div><br/></div><div>//算术运算符：用来处理四则运算的符号</div><div>public class ArithmeticOperatorDemo1{</div><div>    public static void main(String[] args){</div><div>        //操作数</div><div>        System.out.println(10+2);</div><div>        System.out.println(10-2);</div><div>        System.out.println(10/2);</div><div>        System.out.println(10*2);</div><div>        System.out.println("——————————");</div><div>        //操作字符</div><div>        System.out.println('A'+'B');//131</div><div>        //操作字符串</div><div>        System.out.println("AAA"+"BBB");//AAABBB</div><div><br/></div><div>        System.out.println(10/3);</div><div>        System.out.println(9876/1000*1000);//9000</div><div>        //System.out.println(100/0);//ArithmeticException:原因:/by zero</div><div>        //System.out.println(100.0/0);//Infinity，正无穷大</div><div>        System.out.println(0.0/0.0);//NaN,Not a Number</div><div>        //NaN，自己都不等于自己</div><div>        System.out.println("ending——————————");</div><div>        System.out.println(10%3);</div><div><br/></div><div>            }</div><div>}</div><div><br/></div><div><br/></div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>表达式类型的自动提升</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079966,103.851720"><b>Map</b></a><br/>
+  </td></tr>
+</tbody></table>
+<div>当一个算数表达式中包含多个基本数据类型（boolean除外）的值时，整个算术表达式的数据类型将在数据运算时自动提升</div><div>所有的byter，short，char类型被自动提升到int类型</div><div>整个表达式的最终结果类型被提升到表达式中类型的最高类型</div><div><br/></div><div>注意：String和任意数据用+链接起来，结果都是String</div><div><br/></div><div>public class TypeConvertDemo{</div><div>    public static void main(String[] args){</div><div>        /*</div><div>            byte的二进制：00000101</div><div>            short的二进制：00000000_00000101</div><div>            int的二进制：00000000_00000000_00000000_00000101</div><div>        */</div><div><br/></div><div>        </div><div>        byte b1=12;</div><div><br/></div><div>        short s1=b1;//小转大</div><div>        int i1=s1;</div><div>        long l1=i1;</div><div>        float f1=l1;//long--&gt;float</div><div>        double d1=f1;</div><div><br/></div><div>        System.out.println(d1);</div><div><br/></div><div>        float f2=(float)d1;//double--&gt;float</div><div>        </div><div>        double pi=3.14;</div><div>        int i2=(int)pi;//double--&gt;int</div><div>        System.out.println(i2);</div><div>        </div><div>        //直接把double类型的常量，赋给int类型变量13</div><div>        int i3=(int)(3.14+1.7);</div><div>        System.out.println(i3);</div><div><br/></div><div>        double d2=123+1.1F+99L+3.14;</div><div><br/></div><div>        byte b4=25;</div><div>        //b4变量加上3之后，再给b4变量</div><div>        b4=3+b4;//编译报错，b4为byte类型</div><div>    }</div><div>}</div><div><br/></div><div><br/></div><div><img src="%E7%AC%AC%E4%BA%8C%E5%8D%95%E5%85%83%E7%AC%94%E8%AE%B0.resources/47b4503bd5bc1b9758171e53022b1822.jpg" height="423" width="701"/><br/></div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>基本类型的强制转换</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079945,103.851650"><b>Map</b></a><br/>
+  </td></tr>
+</tbody></table>
+<div>强制类型转换，也称为“显示类型转换”</div><div>当把大范围的数值或变量赋给另一个小范围类型变量时，此时系统不能自动完成转换，需要加上强制转换符。</div><div><br/></div><div>问题：</div><div>为什么byte c=5这是符合强制类型转化条件的，可为什么没转呢？</div><div><br/></div><div>编译器，自己检测发现5在byte的范围内，在底层偷偷转换了一步</div><div><br/></div><div>public class Hello{</div><div>    public static void main(String[] args){</div><div>        /*</div><div>            byte的二进制：00000101</div><div>            short的二进制：00000000_00000101</div><div>            int的二进制：00000000_00000000_00000000_00000101</div><div>        */</div><div><br/></div><div>        </div><div>        byte b1=12;</div><div><br/></div><div>        short s1=b1;//小转大</div><div>        int i1=s1;</div><div>        long l1=i1;</div><div>        float f1=l1;//long--&gt;float</div><div>        double d1=f1;</div><div><br/></div><div>        System.out.println(d1);</div><div><br/></div><div>        float f2=(float)d1;//double--&gt;float</div><div>        </div><div>        double pi=3.14;</div><div>        int i2=(int)pi;//double--&gt;int</div><div>        System.out.println(i2);</div><div>        </div><div>        //直接把double类型的常量，赋给int类型变量13</div><div>        int i3=(int)(3.14+1.7);</div><div>        System.out.println(i3);</div><div>    }</div><div>}</div><div><br/></div><div><br/></div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>基本类型的转换</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079902,103.851568"><b>Map</b></a><br/>
+  </td></tr>
+</tbody></table>
+<div>在8大数据类型中，boolean不属于熟知类型，不参与转换</div><div><br/></div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">把不同的数据类型看成不同容量的容器</span></div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">byte是1个字节，最多只能装1斤水</span></div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">short是2个字节，最多只能装2斤水</span></div><div><br/></div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">自动类型转换，也称为“隐式类型转换</span>：</div><div>小数类型范围类型的数值或变量赋给另一个大数据范围类型变量，系统可以完成自动类型转换</div><div><br/></div><div>一般的，byte、short、int、char不参与转换操作。</div><div>我们直接把byte、int、char、直接赋给int类型</div><div><br/></div><div>public class TypeConvertDemo{</div><div>    public static void main(String[] args){</div><div>        /*</div><div>            byte的二进制：00000101</div><div>            short的二进制：00000000_00000101</div><div>            int的二进制：00000000_00000000_00000000_00000101</div><div>        */</div><div><br/></div><div>        </div><div>        byte b1=12;</div><div><br/></div><div>        short s1=b1;//小转大</div><div>        int i1=s1;</div><div>        long l1=i1;</div><div>        float f1=l1;//long--&gt;float</div><div>        double d1=f1;</div><div><br/></div><div>        System.out.println(d1);</div><div>    }</div><div>}</div><div><br/></div><div><br/></div><div><br/></div><div><br/></div><div><br/></div><div><br/></div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>数据过大与溢出问题</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079995,103.851800"><b>Map</b></a><br/>
+  </td></tr>
+</tbody></table>
+<div>当要表示的数据超出数据类型的临界范围时，称为溢出。溢出情况发生时程序并没有做数据范围的检查处理，此时会出现数据紊乱的情况</div><div><br/></div><div>public class OverflowDemo{</div><div>    public static void main(String[] args){</div><div>        //int类型最大的值</div><div>        int intMax=2147483647;</div><div>        //让intMax变量的值加1以后，再赋给intMax变量</div><div>        intMax=intMax+1;</div><div>        System.out.println("int最大值:"+intMax);//-2147483648</div><div>        /*</div><div>            0B11111111_11111111_11111111</div><div>            0B00000000_00000000_00000001</div><div>            ————————————————————————————</div><div>            0B10000000_00000000_00000000</div><div>        */</div><div>        int intMin= -2147483647;</div><div>        intMin=intMin-1;</div><div>        System.out.println("int最小值:"+intMin);</div><div>    }</div><div>}</div><div><br/></div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>最常用的引用类型-String</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079984,103.851732"><b>Map</b></a><br/>
+  </td></tr>
+</tbody></table>
+<div>除了8种基本数据类型，其他所有类型都是引用数据类型</div><div>字符串需要用”"括起来</div><div><br/></div><div>注意：字符串和任意数字相连接结果都是字符串</div><div><br/></div><div>public class StringDemo{</div><div>    public static void main(String[] args){</div><div>        //String的常量</div><div>        System.out.println("Hello World");</div><div>        //String变量</div><div>        String name="龙17";</div><div>        System.out.println("name="+name);</div><div>        //输出"Hello"</div><div>        System.out.println("\"Hello\"");</div><div><br/></div><div>        name = "我是"+"Will"+"今年17岁";</div><div>        System.out.println(name);</div><div>        System.out.println("————————————————");</div><div>        System.out.println(8+7+"Hellow");//结果是15Hello</div><div>        System.out.println("Hello"+7+8);//结果是Hello78</div><div>        System.out.println(7+"Hello"+8);//结果是7Hello8</div><div>        String str=17+"ABC";//组成一个新的字符串</div><div>        System.out.println(str);//17ABC</div><div>        //String str2=(String)17+"ABC";</div><div><br/></div><div>        </div><div>    }</div><div>}</div><div><br/></div><div>/*</div><div>    char常量又三种表示形式：</div><div>        1、直接使用单个字符来指定字符常量</div><div>        2、直接作为十进制整数数值使用</div><div>        3、和2一样，只不过表示的是16进制的数值</div><div>*/</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>字符类型（char）</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079968,103.851713"><b>Map</b></a><br/>
+  </td></tr>
+</tbody></table>
+<div>char类型：表示16位的无符号整数或者Unicode字符，java对字符采用Unicode字符编码（跨平台，一个字符代表两个字节）</div><div>编码：计算机只能表示0和1，于是人们规定用一个数字来表示一个特定字符，比如a使用97表示</div><div><br/></div><div>Unicode前128个与ASCII表相同</div><div><br/></div><div>public class CharDemo{</div><div>    public static void main(String[] args){</div><div>        char c1='A';//直接表示符号</div><div>        System.out.println(c1);</div><div><br/></div><div>        char c2=65;//表示符号对应的十进制顺序</div><div>        System.out.println(c2);</div><div><br/></div><div>        char c3='\u0041';//使用16进制顺序</div><div>        System.out.println(c3);</div><div><br/></div><div>        char data='哥';</div><div>        System.out.println(data);</div><div>    }</div><div>}</div><div><br/></div><div>/*</div><div>    char常量又三种表示形式：</div><div>        1、直接使用单个字符来指定字符常量</div><div>        2、直接作为十进制整数数值使用</div><div>        3、和2一样，只不过表示的是16进制的数值</div><div>*/</div><div><br/></div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>小数类型（float、double）</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079975,103.851723"><b>Map</b></a><br/>
+  </td></tr>
+</tbody></table>
+<div>float、double类型：</div><div>表示<i>小数类型又称为浮点类型</i></div><div><i><br/></i></div><div>public class DecimalDemo{</div><div>    public static void main(String[] args){</div><div>        //小数常量（默认是double类型的)</div><div>        System.out.println(3.14F);//float类型</div><div>        System.out.println(3.14);//double类型</div><div>        System.out.println(3.14E2);//314</div><div>        //小数变量</div><div>        //小数类型 变量名 = 小数常量</div><div>        double pi1=3.14;</div><div><br/></div><div>        float pi2=3.14F;</div><div><br/></div><div>        double a=1.0000000000000000001;</div><div>        double b=1.00000000000000000001;</div><div>        System.out.println(a+b);//2.0（损失了精度）</div><div>    }</div><div>}</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>整数类型（byte、short、int、long）</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.080002,103.851732"><b>Map</b></a><br/>
+  </td></tr>
+</tbody></table>
+<div>整数常量的四种表示形式：</div><div>1、二进制整数：0B或0b开头</div><div>2、八进制整数：要求以0开头</div><div>3、十进制整数</div><div>4、十六进制整数：要求0X或0x开头</div><div><br/></div><div>byte、short、int、long唯一的不同就是储存空间的容量大小不一样。</div><div>根据具体需要储存的数据去选择合适的数据类型</div><div>一般的，使用int即可。</div><div><br/></div><div>整数常量默认为int类型</div><div><br/></div><div>public class IntegerDemo{</div><div>    public static void main(String[] args){</div><div>        //表示10进制的常量</div><div>        System.out.println(110);</div><div>        //表示2进制的常量</div><div>        System.out.println(0b1101110);//byte常量</div><div>        System.out.println(0b00000000_1101110);//short常量</div><div>        System.out.println(0b00000000_00000000_00000000_1101110);//int常量</div><div>        //表示8进制的常量</div><div>        System.out.println(0156);</div><div>        //表示16禁止的常量</div><div>        System.out.println(0x6E);</div><div><br/></div><div>        //整数的变量</div><div>        //整数类型 变量 = 整数值的常量</div><div>        int age = 17;</div><div>        System.out.println(age);</div><div>        //long类型的常量以字母L／l结尾</div><div>        long num=127L;</div><div>        System.out.println(num);</div><div>    }</div><div>}</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>布尔类型（boolean）</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079983,103.851733"><b>Map</b></a><br/>
+  </td></tr>
+</tbody></table>
+<div>boolean类型：通常用于逻辑运算和程序流程控制（条件选择／循环）。</div><div>该类型的值只能是true或false，表示真或假。</div><div>false和true是boolean的常量</div><div><br/></div><div>public class BooleanDemo{</div><div>    public static void main(String[] args){</div><div>        //boolean类型的常量：true／false</div><div>        System.out.println(true);</div><div>        System.out.println(false);</div><div><br/></div><div>        //boolean类型的变量</div><div>        //数据类型  变量名 =该类型的常量值；</div><div>        boolean isMan = true;</div><div>        System.out.println(isMan);</div><div><br/></div><div>        //给isMan变量重新赋值</div><div>        isMan = false;</div><div>        System.out.println(isMan);</div><div><br/></div><div>    }</div><div>}</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>数据类型和分类</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079963,103.851729"><b>Map</b></a><br/>
+  </td></tr>
+</tbody></table>
+<div><br/></div><div><img src="%E7%AC%AC%E4%BA%8C%E5%8D%95%E5%85%83%E7%AC%94%E8%AE%B0.resources/blog131.png" height="249" width="544"/><br/></div><div>在java中数据类型整体上分为两大类：</div><div>    1、基本数据类型／原生数据类型（共有8个）：<br/></div><div>            1、数值型：</div><div>                    整数类型：byte、short、int、long<br/></div><div>                                      不同的整数类型在内存占用的内存空间大小是不一样的<br/></div><div>                    小数类型：float、double<br/></div><div>            2、字符型：char，字母／符号<br/></div><div>            3、布尔型：boolean，表示对与错，true，false<br/></div><div><br/></div><div>    2、引用数据类型／对象数据类型：<br/></div><div>            类／借口／数组<br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>java表达式</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.080007,103.851714"><b>Map</b></a><br/>
+  </td></tr>
+</tbody></table>
+<div>表达式（expression）：是由数字、运算符、数字分组符号（括号）、常量、变量以能求得结果的有意义排列的组合。</div><div>public class ExpressionDemo{</div><div>    public static void main(String[] args){</div><div>        System.out.println(1+2+3);</div><div>        System.out.println("________");</div><div>        int result=1+2+3;</div><div>        System.out.println(result);</div><div>        System.out.println("_______");</div><div>        int a=12;</div><div>        int b=3;</div><div>        int c=5;</div><div>        result=(a+b)/c+10;</div><div>        System.out.println(result);</div><div>    }</div><div>}</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>变量分类——作用域——使用规则</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079983,103.851714"><b>Map</b></a><br/>
+  </td></tr>
+</tbody></table>
+<div>public class VarDemo2{</div><div>     static int age = 17;</div><div>    public static void main(String[] args){</div><div>        int age=18</div><div><br/></div><div>        System.out.println(age);</div><div>    }</div><div>}</div><div>/*变量的分类：</div><div>  变量根据定义的位置的不同，分为两大类</div><div>        1、成员变量／字段：直接定义在类的{}中的变量（方法外）</div><div>            报错：无法从静态上下文中引用非静态变量age</div><div><br/></div><div>        2、局部变量：定义在方法中的变量</div><div>            变量出了成员变量就是局部变量</div><div><br/></div><div>        注意：就近原则</div><div><br/></div><div>  变量的作用域：可以起作用的领域 </div><div>        根据变量所在的{}判断</div><div>        1、成员变量：在所定义的域中起作用</div><div>        2、局部变量：从定义的那一个地方开始，到紧跟着结束的}之间</div><div>  变量使用规则：</div><div>          1、变量必须先声明，并且初始化后才能使用</div><div>          2、声明变量必须有数据类型</div><div>          3、同一作用域内变量名不能重复定义</div><div>*/</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>变量的定义和基本使用</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079825,103.851509"><b>Map</b></a><br/>
+  </td></tr>
+</tbody></table>
+<div>变量的定义：表示储存空间，可用来存<span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">放某一类型的常量</span>，<span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">没有固定值</span>，<span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">并可以重复使用</span>，也可以用来储存某种类型的未知数据。</div><div><br/></div><div>变量的特点：</div><div>1、占据着内存中的某一块储存区域；</div><div>2、该区域由自己的名称（变量名）和类型（数据类型）；</div><div>3、可以被重复使用；</div><div>4、该区域和数据可以在统一类型范围内不断变化；</div><div><br/></div><div>//变量操作</div><div>public class VarDemo</div><div>{</div><div>    public static void main(String[] args)</div><div>    {</div><div>        /*</div><div>            <span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">1、变量的定义格式：</span></div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">                数据类型 变量名；</span></div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">            如：    int age;</span></div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">            2、给变量赋值（初始化）</span></div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">                变量名 = 声明变量类型的常量值；</span></div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">            3、在声明变量的时候，并做初始化</span></div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">                数据类型 变量名=声明变量名的常量值</span></div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">                int age=17;</span></div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;"><br/></span></div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">            注意：变量必须初始化（赋值）之后才能使用，初始化才是真正的在内存分配空间</span></div><div>        */</div><div>        int age;//定义了一个int类型的变量，变量名为age</div><div><br/></div><div>        age=17;//表示把17这个常量值，赋给age变量</div><div>        System.out.println(age);//打印变量，其实打印的是盖变量当前所赋予的值</div><div><br/></div><div>        //同时定义多个变量 </div><div>        int a,b,c;//不推荐</div><div>    }</div><div>}</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%" style="width:100%;">
+  <tbody><tr><td>
+    <h1>走进变量</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079932,103.851718"><b>Map</b></a><br/>
+  </td></tr>
+</tbody></table>
+<div>public class StepInVarDemo</div><div>{</div><div>    public static void main(String[] args)</div><div>    {</div><div>        //接到客户一个需求，求两个操作数8和4的和，差，积，商</div><div>        System.out.println(8 + 4);</div><div>        System.out.println(8 - 4);</div><div>        System.out.println(8 * 4);</div><div>        System.out.println(8 / 4);</div><div><br/></div><div>        //开发中唯一变化的是需求一直在变</div><div>        //需求变化：把操作数变成8和4</div><div>        int a = 6;</div><div>        int b = 3;</div><div><br/></div><div>        System.out.println(a + b);</div><div>        System.out.println(a - b);</div><div>        System.out.println(a * b);</div><div>        System.out.println(a / b);</div><div>    }</div><div>}</div></body></html>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 6.12.3 (455521)"/><meta name="altitude" content="1529.177978515625"/><meta name="author" content="923435274@qq.com"/><meta name="created" content="2017-07-06 02:42:57 +0000"/><meta name="latitude" content="36.07997691436393"/><meta name="longitude" content="103.8517391346724"/><meta name="source" content="desktop.mac"/><meta name="updated" content="2017-07-16 10:14:34 +0000"/><title>第五单元笔记</title></head><body>
+
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>java内置数组工具类Arrays</h1>
+  </td></tr>
+</table>
+<div>数组的算法操作使用很频繁，SUN公司在JDK中一景提供了一个数组的工具类（Arrays)</div><hr/><div>public class Hello{</div><div>    public static void main(String[] args){</div><div>        int[] arr={1,2,3,4,5,6,7,4,5,9,10};</div><div>         String ret=java.util.Arrays.toString(arr);</div><div>         System.out.println(ret);</div><div><br/></div><div>         java.util.Arrays.sort(arr);//排序</div><div>         System.out.println(java.util.Arrays.toString(arr));</div><div>    }</div><div>}</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>自行封装数组操作的工具类ArrayUtil</h1>
+  </td></tr>
+</table>
+<div>讨论的都是int类型数组</div><div>打印数组元素：print方法</div><div>颠倒数组元素：reverse方法</div><div>获取元素索引：indexOf/lastIndexOf</div><div>获得元素最值：getMax/getMin\</div><div>拷贝数组元素：arraycopy</div><div>数组元素排序：sort</div><div>二分查找：binarySreach</div><div>等</div><hr/><div>针对于数组来说，上述方法会经常使用到</div><div>在A类中使用，得把上述方法拷贝到A类中去使用</div><div>在B类中使用，得把上述方法拷贝到B类中去使用</div><hr/><div>重复的功能被定义了N次！</div><hr/><div>class ArrayUtil{</div><div>     static int binarySearch(int[] arr,int key){</div><div>        int low=0;//最小的索引</div><div>        int high=arr.length-1;//最大的索引</div><div><br/></div><div>        while(low&lt;=high){</div><div>            System.out.println(low+"------"+high);</div><div>            int mid=(low+high)&gt;&gt;1;//中间的索引</div><div>            int midVal=arr[mid];//猜测的值</div><div>            if(midVal&gt;key){</div><div>                high=mid-1;</div><div>            }else if(midVal&lt;key){</div><div>                low=mid+1;</div><div>            }else{</div><div>                return mid;</div><div>            }</div><div>        }</div><div>        return -1;</div><div>    }</div><div>    static void selectionSort(int[] arr){</div><div>        for(int times=1;times&lt;=arr.length-1;times++){</div><div>            for(int index=times;index&lt;=arr.length-1;index++){</div><div>                if(arr[times-1]&gt;arr[index]){</div><div>                    swap(arr,times-1,index);</div><div>                }</div><div>            }</div><div>        }</div><div>    }</div><div>     static void swap(int[] arr,int index1,int index2)</div><div>    {</div><div>        int temp=arr[index1];</div><div>        arr[index1]=arr[index2];</div><div>        arr[index2]=temp;</div><div>    }</div><div>    static void printArray(int[] arr){</div><div>        String ret="[";</div><div>        for(int index=0;index&lt;arr.length;index++){</div><div>            ret=ret+arr[index];</div><div>            //如果当前index不是最后一个索引，则拼接“， ”</div><div>            if(index!=arr.length-1){</div><div>                ret=ret+", ";</div><div>            }</div><div>            </div><div>        }</div><div>        ret=ret+"]";</div><div>        System.out.println(ret);</div><div>    }</div><div>    static int indexOf(int[] arr,int key){</div><div>        for(int index=0;index&lt;arr.length;index++){</div><div>            if(arr[index]==key){</div><div>                return index;</div><div>            }</div><div>        }</div><div>        return -1;</div><div>    }</div><div>    static int lastIndexOf(int[] arr,int key){</div><div>        for(int index=arr.length-1;index&gt;=0;index--){</div><div>                if(arr[index]==key){</div><div>                    return index;</div><div>                }</div><div>            </div><div>        }    </div><div>        return -1;</div><div>    }    </div><div><br/></div><div>}</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>查找算法——二分法查找</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.739348,103.260468"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>数组的搜索算法：从指定数组中去搜索某一个元素的索引是多少</div><div><span>    方式一：线性搜索（从头搜到尾／从尾搜到头）：indexOf/lastIndexOf</span><br/></div><div><span><span>    <span>   对于元素过多的数组，性能极低：有N个元素，循环次数=（N+1）／2</span></span><br/></span></div><div><span><span><span><span>    方式二：二分搜索法／二分查找法／折半查找</span><br/></span></span></span></div><div><span><span><span><span><span>        <span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">前提：数组元素必须有顺序</span></span><br/></span></span></span></span></div><div><span><span><span><span><span><span><hr/>算法：当数据量很大的时候适宜采用此种方法</span></span></span></span></span></span></div><div>猜数游戏：一个朋友让你猜他正在想的一个从1到100的数，等你猜了，他会告诉你三种结果中的一个：你猜的比他想的大，或小，或猜中了。</div><div>为了能用最少的次数猜中，必须从50开始猜。如果他说你猜小了，那么就能得出哪个数载50到100之间，所以马上猜75。但如果他说猜大了，你也能明白哪个数载1到20之间，所以马上猜25，如此重复，范围越来越小，直到猜到为止。</div><hr/><div>//二分搜索法／二分查找法／折半查找</div><div>public class BinarySearchDemo{</div><div>    public static void main(String[] args){</div><div>        int[] arr={1,2,3,4,5,6,7,8,9,10};</div><div><br/></div><div>        int index=binarySearch(arr,8);</div><div>        System.out.println(index);</div><div>    }</div><div>    //从arr数组中搜索key的元素，找到返回其索引，否则返回-1</div><div>    static int binarySearch(int[] arr,int key){</div><div>        int low=0;//最小的索引</div><div>        int high=arr.length-1;//最大的索引</div><div><br/></div><div>        while(low&lt;=high){</div><div>            System.out.println(low+"------"+high);</div><div>            int mid=(low+high)&gt;&gt;1;//中间的索引</div><div>            int midVal=arr[mid];//猜测的值</div><div>            if(midVal&gt;key){</div><div>                high=mid-1;</div><div>            }else if(midVal&lt;key){</div><div>                low=mid+1;</div><div>            }else{</div><div>                return mid;</div><div>            }</div><div>        }</div><div>        return -1;</div><div>    }</div><div>}</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>排序算法——选择排序</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.739239,103.260454"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>基本思路：选择某个索引位置的元素，然后和后面的元素依次比较，若大于则交换位置，经过一轮比较排序后可得出最小值，然后使用同样的方法把剩下的元素诸葛比较即可</div><div><br/></div><div>第一轮从arr[0]和后面的元素相比较，第二轮从arr[1]和后面的元素相比较，依此类推，N个数要进行N-1轮，选择排序每一轮只进行一次交换，相对于冒泡排序效率高一些。</div><div><hr/><br/></div><div>public class SelectionSortDemo{</div><div>    public static void main(String[] args){</div><div>        int[] arr={2,9,6,7,4,1};</div><div>        printArray(arr);</div><div>        selectionSort(arr);</div><div>        printArray(arr);</div><div>    }</div><div>    static void selectionSort(int[] arr){</div><div>        for(int times=1;times&lt;=arr.length-1;times++){</div><div>            for(int index=times;index&lt;=arr.length-1;index++){</div><div>                if(arr[times-1]&gt;arr[index]){</div><div>                    swap(arr,times-1,index);</div><div>                }</div><div>            }</div><div>        }</div><div>    }</div><div>     static void swap(int[] arr,int index1,int index2)</div><div>    {</div><div>        int temp=arr[index1];</div><div>        arr[index1]=arr[index2];</div><div>        arr[index2]=temp;</div><div>    }</div><div>    static void printArray(int[] arr){</div><div>        String ret="[";</div><div>        for(int index=0;index&lt;arr.length;index++){</div><div>            ret=ret+arr[index];</div><div>            //如果当前index不是最后一个索引，则拼接“， ”</div><div>            if(index!=arr.length-1){</div><div>                ret=ret+", ";</div><div>            }</div><div>            </div><div>        }</div><div>        ret=ret+"]";</div><div>        System.out.println(ret);</div><div>    }</div><div><br/></div><div>}</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>排序算法——冒泡排序</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.063701,103.860997"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>排列：按照指定的顺序排列出表</div><div>    从小到大（升序）／从大到小（降序）</div><div><br/></div><div>排序的分类：</div><div>1、选择排序</div><div>2、交换排序</div><div>3、插入排序</div><div>4、归并排序</div><div><br/></div><div>排序：int[] arr={2,9,6,7,4,1}</div><div><br/></div><div>冒泡排序：</div><div>对未排序的各元素从头到尾依次比较相邻的两个元素的大小关系，若大于则交换位置，经过第一轮比较排序可得出最大值，然后使用相同的方法把剩下的方法逐个比较即可</div><div>可以看出若有N个元素，那么一共要进行N-1轮比较，第M轮要进行N-M次比较</div><hr/><div>自己的代码：</div><div>static int[] bubbleSort(int[] arr){</div><div>        for(int i=1;i&lt;=arr.length-1;i++){</div><div>            for(int index=0;index&lt;arr.length-1;index++){</div><div>            if(arr[index]&lt;arr[index+1]){</div><div>                int temp=arr[index];</div><div>                arr[index]=arr[index+1];</div><div>                arr[index+1]=temp;</div><div>            }</div><div>        }</div><div>        }</div><div>        return arr;</div><div>    }</div><div><hr/></div><div>public class bubbleSortDemo</div><div>{</div><div>    public static void main(String[] args)</div><div>    {</div><div>       int[] arr={2,9,6,7,4,1};</div><div>       printArray(arr);</div><div>       bubbleSort(arr);//排序</div><div>       printArray(arr);</div><div>    }</div><div>    //冒泡排序</div><div>    static void bubbleSort(int[] arr)</div><div>    {</div><div>        for(int times=1;times&lt;=arr.length-1;times++)</div><div>        {</div><div>            for(int i=1;i&lt;=arr.length-times;i++)</div><div>            {</div><div>                if(arr[i-1]&gt;arr[i])</div><div>                {</div><div>                    swap(arr,i-1,i);</div><div>                }</div><div>                </div><div>            }</div><div>        }</div><div>    }</div><div>    static void swap(int[] arr,int index1,int index2)</div><div>    {</div><div>        int temp=arr[index1];</div><div>        arr[index1]=arr[index2];</div><div>        arr[index2]=temp;</div><div>    }</div><div>    static void printArray(int[] arr)</div><div>    {</div><div>        String ret="[";</div><div>        for(int index=0;index&lt;arr.length;index++)</div><div>        {</div><div>            ret=ret+arr[index];</div><div>            //如果当前index不是最后一个索引，则拼接“， ”</div><div>            if(index!=arr.length-1){</div><div>                ret=ret+", ";</div><div>            }</div><div>            </div><div>        }</div><div>        ret=ret+"]";</div><div>        System.out.println(ret);</div><div>    }</div><div>}</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>System类中的arraycopy方法</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079992,103.851749"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>定义一个数组元素的拷贝方法，能支持任意类型的数组元素拷贝操作（反射）</div><div>数组拷贝操作，是经常使用到的，sun就直接把数组的拷贝操作就存放在JDK的System类中</div><div><br/></div><div>Object：java中的根类，老祖宗类，Object可以表示任意数据类型</div><div>该方法没有方法体，该方法使用了native修饰符（本地方法），该方法底层使用了C/C++语言实现了，java直接调用其他语言编写号的功能</div><div><br/></div><div>System.arraycopy(src,2,dest,5,4);<br/></div><div>API：java的帮助文档，好比字典</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>实现int类型数组元素拷贝</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079963,103.851731"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>public class ArrayCopyDemo{</div><div>    public static void main(String[] args){</div><div>        int[] src=new int[]{1,2,3,4,5,6,7,8,9,10};//源数组</div><div>        int[] dest=new int[10];//目标数组</div><div>        //需求：从src数组中拷贝3，4，5，6元素到dest数组中</div><div>        printArray(dest);//[0,0,0,0,0,0,0,0,0,0]</div><div>        copy(src,2,dest,5,4);//拷贝操作</div><div>        printArray(dest);//[0,0,0,0,0,3,4,5,6,0]</div><div><br/></div><div>    }</div><div>    /*</div><div>        参数：</div><div>        src：源数组</div><div>        srcPos：从源数组中哪个索引位置开始拷贝</div><div>        dest：目标数组</div><div>        length：拷贝元素的个数</div><div>        destpos：在目标数组中哪一个索引位置开始粘贴</div><div>    */</div><div>    static void copy(int[] src,int srcPos,int[] dest,int destPos,int length){</div><div>        //index表示每次需要拷贝元素的索引</div><div>        for(int index=srcPos;index&lt;srcPos+length;index++){</div><div>            dest[destPos]=src[index];</div><div>            destPos++;</div><div>        }</div><div>    }</div><div>    static void printArray(int[] arr){</div><div>        String ret="[";</div><div>        for(int index=0;index&lt;arr.length;index++){</div><div>            ret=ret+arr[index];</div><div>            //如果当前index不是最后一个索引，则拼接“， ”</div><div>            if(index!=arr.length-1){</div><div>                ret=ret+", ";</div><div>            }</div><div>            </div><div>        }</div><div>        ret=ret+"]";</div><div>        System.out.println(ret);</div><div>    }</div><div>}</div><div><hr/>代码存在的问题：1、只能拷贝int类型的数组</div><div><span>    <span>    <span>    <span>    <span>    <span>    <span>    <span> 2、代码不够健壮</span></span></span></span></span></span></span></span><br/></div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>java5对数组的支持-方法的可变参数</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079977,103.851722"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>需求：编写一个方法，统计使用数组传递过来的总和</div><div><br/></div><div>    double[] ps=new double[]{10.0,20.0,30.0,40.0,50.0};</div><div>        double result=getsum(ps);</div><div>        System.out.println(result);</div><div>    }</div><div>    //计算商品总和</div><div>    static double getsum(double[] arr){</div><div>        double sum=0;</div><div>        for(double price:arr){</div><div>            sum+=price;</div><div>        }</div><div>        return sum;</div><div><br/></div><div>1、为了求多个数之和，我还得创建一个数组来储存数据</div><div>2、如果多个数是变化的，比如三个数之和变成求5个数之和，但是数组是定长的</div><div>期望调用求和的方法是这样调用的</div><div>double sum=getSum(10,20,30);</div><div><br/></div><div>要解决该问题要使用java5的另一个新特性，方法的可变参数</div><div>static double getsum(double…arr)；<br/></div><div><hr/>方法的可变参数其实只是一个语法糖，只是让开发者写代码更简单</div><div>方法的可变参数其底层就是一个数组类型</div><div>可变参数必须为最后一个参数</div><div>推论：方法最多只有一个可变参数</div><hr/><div>//方法的可变参数</div><div>public class VarArgsDemo{</div><div>    public static void main(String[] args){</div><div>        //double[] ps=new double[]{10.0,20.0,30.0,40.0,50.0};</div><div>        double result=getsum(0.8,10.0,20.0,30.0,40.0);</div><div>        System.out.println(result);</div><div>    }</div><div>    //计算商品总和</div><div>    static double getsum(double x,double...arr){</div><div>        double sum=0;</div><div>        for(double price:arr){</div><div>            sum+=price;</div><div>        }</div><div>        return sum*x;</div><div>    }</div><div>}</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>java5对数组的支持-增强for循环</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079987,103.851738"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>增强for循环-foreach:</div><div>需求：定义一个数组，使用循环迭代出数组中的每一个元素</div><div>使用for循环的操作如下：</div><div><span>    <span>    </span></span>int[] nums=new int[]{10,20,30,40,50};</div><div>        //使用循环迭代出数组中的每一个元素</div><div>        for(int index=0;index&lt;nums.length;index++){</div><div>            System.out.println(nums[index]);</div><div>        }</div><div>其实，我们在循环迭代数组时，往往是不关心迭代变量（数组的索引），有没有更好的方式，迭代数组元素的时候，就只操作数组元素，不去操作数组的索引</div><div>从java5开始（jdk1.5）开始，java提供了一种新的语法：增强for循环（foreach）</div><div>语法：</div><div>For（数组元素类型 变量:数组名）</div><div>{</div><div><span>    循环体</span><br/></div><div>}</div><div><hr/>通过反编译，发现foreach其实在底层依然是使用for 循环+索引操作数组的</div><div>我们把增强for循环，称为编译器的新特性————语法糖</div><div>语法糖最大的甜头就是让开发者写更少更简单的代码，完成相同的功能</div><div><hr/>For循环的功能比foreach更强大，如果迭代数组元素而不关心索引的时候，首选使用foreach</div><hr/><div>public class ForEachDemo{</div><div>    public static void main(String[] args){</div><div>        int[] nums=new int[]{10,20,30,40,50};</div><div>        //使用循环迭代出数组中的每一个元素</div><div>        for(int index=0;index&lt;nums.length;index++){</div><div>            System.out.println(nums[index]);</div><div>        }</div><div>        System.out.println("---------");</div><div>        for(int ele:nums){</div><div>            System.out.println(ele);</div><div>        }</div><div>    }</div><div>}</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>数组中的数组（多维数组）</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079977,103.851796"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>前面说了，数组是多个数据的集合</div><div>int[] arr=new int[]{1,3,5,7,9}</div><div>如果现在有多个数组，我想把多个数组保存在一个集合中，此时我又该如何完成</div><div>int[] arr1={1,2,3}</div><div>int[] arr2={4,5}</div><div>int[] arr3={6}</div><div>把上述的每一个数组都作为一个元素，那么此时元素类型为：int[] </div><div><hr/>数组的语法</div><div>数组元素类型[] 数组名;</div><div>int[][] arr=new int[][]{</div><div><span>    <span>    <span>    <span>    <span>    a</span></span></span></span></span>rr1,arr2,arr3;<br/></div><div>};</div><div><hr/>一维数组：数组中的每一个元素都是一个值（基本类型和引用类型的值）</div><div>二维数组：数组中的每一个元素又是一个一维数组</div><div>三维数组：数组中的每个元素都是一个二维数组</div><div><hr/>严格上说，在java中不存在多维数组的概念，和c语言作区分，一般称之为数组中的数组</div><div><br/></div><div><br/></div><div><br/></div><div><br/></div><div><br/></div><div><hr/>二维数组的初始化操作</div><div>静态初始化：int[][] arr=new int[][]{</div><div><span>    <span>    <span>    <span>    {1,2,3},{4,5},{6}</span></span></span></span><br/></div><div>};</div><div>动态初始化：int[][] arr=new int[3][5];创建一个长度为3的二维数组，每个元素（一维数组）的长度为5</div><div><hr/>针对于N个数组，使用N个循环嵌套</div><hr/><div>public class ArrayInArrayDemo{</div><div>    public static void main(String[] args){</div><div>        int[][] arr=new int[][]{</div><div>            {1,2,3},</div><div>            {4,5},</div><div>            {6}</div><div>        };</div><div><br/></div><div>        System.out.println(arr.length);</div><div>        for(int i=0;i&lt;arr.length;i++){</div><div>            System.out.println(arr[i]);</div><div>            for(int j=0;j&lt;arr[i].length;j++){</div><div>                System.out.println(arr[i][j]);</div><div>            }</div><div>        }</div><div>    }</div><div>}</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>参数的值传递机制-引用数据类型</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079944,103.851693"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>//参数的值传递机制-基本数据类型</div><div>public class ParameterDemo2{</div><div>    public static void main(String[] args){</div><div>        int[] arr=new int[]{10,99};</div><div>        printArray(arr);//[10,99]</div><div>        swap(arr);//交换第一个和最后一个元素的值</div><div>        printArray(arr);//[99,10]</div><div>    }</div><div>    static void swap(int[] arr){</div><div>        int temp=arr[0];//把第一个元素存在temp中</div><div>        arr[0]=arr[arr.length-1];//把最后一个元素赋值给第一个位置</div><div>        arr[arr.length-1]=temp;</div><div>    }</div><div>    static void printArray(int[] arr){</div><div>        String ret="[";</div><div>        for(int index=0;index&lt;arr.length;index++){</div><div>            ret=ret+arr[index];</div><div>            //如果当前index不是最后一个索引，则拼接“， ”</div><div>            if(index!=arr.length-1){</div><div>                ret=ret+", ";</div><div>            }</div><div>            </div><div>        }</div><div>        ret=ret+"]";</div><div>        System.out.println(ret);</div><div>    }</div><div>}</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>参数的值传递机制-基本数据类型</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.049082,103.860701"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>//参数的值传递机制-基本数据类型</div><div>public class ParameterDemo1{</div><div>    public static void main(String[] args){</div><div>        int x=10;</div><div>        System.out.println("前x="+x);//10</div><div>        change(x);//改变x变量</div><div>        System.out.println("后x="+x);//10 </div><div>    }    </div><div>    static void change(int x){</div><div>        System.out.println("chenge前x="+x);//10</div><div>        x=50;</div><div>        System.out.println("change后x="+x);//50</div><div>    }</div><div>}</div><div><br/></div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>main方法的数组参数</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079964,103.851717"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>参数：<span>    参数名称：String[]</span></div><div><span><span>    <span>    <span>    <span>   参数名称：args（arguments）</span></span></span></span><br/></span></div><div><span><span><span><span><span><br/></span></span></span></span></span></div><div>main 方法是static修饰的，说明直接使用Hello类调用即可</div><div>在底层是JVM通过Hello.main（实参）；</div><div>main方法的String数组参数，其实是暴露给程序运行者的，用于给程序传递一个数据信息</div></body></html>

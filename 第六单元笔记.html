@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 6.12.3 (455521)"/><meta name="altitude" content="1530.421630859375"/><meta name="author" content="923435274@qq.com"/><meta name="created" content="2017-07-16 10:14:33 +0000"/><meta name="latitude" content="36.07993582723996"/><meta name="longitude" content="103.8517133727147"/><meta name="source" content="desktop.mac"/><meta name="updated" content="2017-07-20 14:08:17 +0000"/><title>第六单元笔记</title></head><body>
+
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>类成员和实例成员的访问</h1>
+  </td></tr>
+</table>
+<div>类中的成员：字段，方法，内部类</div><div>类成员：使用static修饰的成员</div><div>实例成员：没有使用static修饰的成员</div><div><hr/>类成员只能访问类成员，实例成员只能访问实例成员</div><div><hr/>类成员，直接属于类，可以通过类来访问static字段和static方法</div><div>实例成员，只属于对象，通过对象来访问非static字段和非static方法</div><div><span>    <span>    <span>    <span>    （对象其实可以访问类成员，但是底层依然使用类名访问的）</span></span></span></span><br/></div><div><span><span><span><span><hr/>注意：在static方法中只能调用static成员</span></span></span></span></div><div><span><span><span><span><br/></span></span></span></span></div><div>非static方法，可以访问静态成员，也可以访问实例成员</div><div><hr/>什么时候定义成static的字段和方法：</div><div><span>    如果这个一个状态／行为属于整个事物（类），就直接使用static修饰，被所有对象所共享。</span><br/></div><div><span><hr/>在开发中往往把工具方法使用static修饰</span></div><div>如果不使用static修饰，则这些方法属于该类的对象，我们得先创建对象再调用方法，在开发中，工具对象只需要一份即可，可能创建N个对象，此时我们往往把该类设计为单例的，但是还是有点麻烦</div><div><span>    所以，一般的，在开发中设计工具方法，为了调用简单，我们使用static修饰</span><br/></div><div><span><hr/>类成员的使用：</span></div><div>利处：对对象的共享数据进行单独空间的储存，节省空间，没有必要每一个对象中都存储一份，可以直接被类名调用</div><div>弊端：生命周期过长</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>static成员在JVM存储的位置</h1>
+  </td></tr>
+</table>
+<div>//人类</div><div>class Person{</div><div>    String name;//姓名</div><div>    int age;//年龄</div><div><br/></div><div>    //不属于某个对象，属于人类</div><div>    static int totalNum=5;//人的总人数</div><div><br/></div><div>    Person(String n,int a){</div><div>        name=n;</div><div>        age=a;</div><div>        totalNum++;</div><div>    }</div><div><br/></div><div>    void die(){</div><div>        totalNum--;</div><div>        System.out.println("去世。。。");</div><div>    }</div><div><br/></div><div>    static void destroy(){</div><div>        totalNum=0;</div><div>        System.out.println("人类毁灭");</div><div>    }</div><div>}</div><div>//演示static修饰符</div><div>class PersonDemo{</div><div>    public static void main(String[] args){</div><div>        System.out.println(Person.totalNum);</div><div>        Person p1=new Person("Will",15);</div><div>        Person p2=new Person("Will",15);</div><div>        System.out.println(Person.totalNum);</div><div><br/></div><div>        System.out.println(p1.totalNum);</div><div>        System.out.println(p2.totalNum);</div><div><br/></div><div>        p2.die();//p2去世</div><div>        System.out.println(Person.totalNum);</div><div><br/></div><div>        Person.destroy();//</div><div>        System.out.println(Person.totalNum);</div><div>    }</div><div>}</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>static修饰符和特点</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079911,103.851705"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>在生活中有些东西不是属于某一个具体对象的，而是属于整个书屋的类型，比如：全世界人的总数，人的毁灭的行为</div><div>毁灭的行为应该属于人类，而不属于某一个人</div><div><hr/>状态和行为应该有对象和类型之分，</div><div><span>    有的状态和行为应该属于对象，不同的对象，状态和行为可以不一样</span><br/></div><div><span><span>    有的状态和行为应该属于类型，不属于对象</span><br/></span></div><div>问题：现在如何表示人类毁灭这个行为（destroy）</div><div>要解决该问题，得学习static修饰符</div><div><hr/>static表示静态的，可修饰字段，方法，内部类，其修饰的成员属于类，也就是说static修饰的资源属于类级别，而不是对象级别</div><div><br/></div><div>static真正的作用：用来区别字段，方法，内部类，初始化代码块是属于对象还是属于类本身</div><div><br/></div><div>static修饰符的特点：</div><div>   <span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;"> 1、static修饰的成员（字段／方法），随着所在类的加载而加载</span><br/></div><div><span><span>    <span>    当JVM把字节码加载进JVM的时候，static修饰的成员已经在类中存在了</span></span><br/></span></div><div><span><span><span><span>    <span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">2、优先于对象的存在</span></span><br/></span></span></span></div><div><span><span><span><span><span><span>    <span>    对象是我们手动通过new关键字创建出来的</span></span><br/></span></span></span></span></span></div><div>   <span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;"> 3、static修饰的成员被该类型的所有对象所共享</span><br/></div><div><span><span>    <span>    根据该类创建的任何对象，都可以访问static成员</span></span><br/></span></div><div><span><span><span><span>    <span>    剧透：表面上通过对象去访问static成员，其本质依然是使用类名访问，和对象没有任何关系</span></span><br/></span></span></span></div><div><span><span><span><span><span>  <span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">  </span><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">4、直接使用类名访问static成员</span></span></span></span></span></span></div><div><span><span><span><span><span><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;"><span>    <span>    </span></span>因为static修饰的成员直接属于类不属于对象，所以可以直接使用类名访问static成员</span></span></span></span></span></span></div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>自定义构造器和构造器重载</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079938,103.851626"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>方法的重载（Overload）：</div><div><span>    避免了在同一个类中相同功能的方法名字不同的问题</span><br/></div><div>判断依据：两同，一不同</div><div><hr/>构造器是一种特殊的方法，也可以存在重载</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>构造器概述和缺省构造器</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079900,103.851643"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>创建一个学生对象的时候，代码如下：</div><div>Student s1=new Student();</div><div>这个代码特别像：在调用一个犯法名称为Student的无参数方法</div><hr/><div>我们把这种特殊的方法称之为构造方法，构造器（构造函数／构造子：Constructor）</div><div>但是我们发现在Student类中，却找不到该构造方法，找不到却又没有报错</div><div>编译器在编译源文件的时候，会默认创建一个缺省的构造器</div><hr/><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">构造器的作用：</span></div><div>    1、创建对象，凡是必须和new一起使用</div><div>    2、完成对象的初始化操作</div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">构造器的特点：</span></div><div>    1、构造器的名称和当前所在类的名称相同</div><div>            如果构造器名称叫XXX，new XXX();你能看出来创建的是什么类型的变量吗<br/></div><div>    2、禁止定义返回类型，千万不要使用void作为返回类型void Student(){}这是普通方法<br/></div><div>            假设需要写返回类型，也应该这样写： Student Student()；既然所有返回类型都与所在类名相同，又何必要写</div><div>    3、在构造器中不需要使用return语句</div><div>            其实构造器是有返回值的，返回的是当前创建对象的引用<br/></div><hr/><div>编译器创建的默认构造器的特点：</div><div>    1、符合构造器特点<br/></div><div>    2、无参数的<br/></div><div>    3、无方法体的<br/></div><div>    4、如果类A没有使用public修饰，则编译器创建的构造器也没有public<br/></div><div>         如果类A使用public修饰，则编译器创建的构造器也有public<br/></div><div>构造器：如果我们没有显示提供构造器，则编译器在编译的时候创建一个缺省构造器，但是如果我们显示定义了一个构造器，则编译器不再创建默认构造器</div><div>——————&gt;某一个类至少存在一个构造器</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>学生缴学费案例</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079922,103.851669"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>需求：学生类（Student）有两个字段：name（名字）和isFee（是否缴学费的状态）。有一个方法：缴学费（fees）。每个学生都是通过Student类new出来的一个对象，现在创建一个数组存放多个学生对象，再判断数组中的学生是否已经缴费，如果没有则调用学生的缴学费的方法</div><hr/><div>//描述学生对象</div><div>class Student{</div><div>    String name;//学生的姓名</div><div>    boolean isFee=false;//学生缴费状态,默认是未缴费</div><div>    void fees(){</div><div>        isFee=true;//设置为已经缴学费</div><div>    }</div><div>}</div><div>//测试类</div><div>class StudentDemo{</div><div>    public static void main(String[] args){</div><div>        //创建学生对象</div><div>        Student s1=new Student();</div><div>        s1.name="赵一";</div><div>        s1.isFee=true;</div><div><br/></div><div>        Student s2=new Student();</div><div>        s2.name="钱儿";</div><div><br/></div><div>        Student s3=new Student();</div><div>        s3.name="孙三";</div><div>        s3.isFee=false;</div><div><br/></div><div>        Student s4=new Student();</div><div>        s4.name="李四";</div><div>        s4.isFee=true;</div><div><br/></div><div>        //创建一个数组，用于存储所有的学生对象</div><div>        Student[] arr=new Student[]{s1,s2,s3,s4};</div><div><br/></div><div>        //使用循环迭代数组中的每一个元素</div><div>        for(Student ele:arr){</div><div>            //判断当前学生对象是否缴费，如果没有，则调用缴费方法</div><div>            if(!ele.isFee){</div><div>                ele.fees();</div><div>            }</div><div>        }</div><div>        for(Student ele:arr){</div><div>            System.out.println(ele.name+","+ele.isFee);</div><div>        }</div><div>    }</div><div>}</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>打印和比较对象-对象生命周期-匿名对象</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079948,103.851722"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>1、对象的打印操作：</div><div>    打印对象的时候，打印出来的效果，如：Servant@677327b6</div><div>    类的名称@十六进制的hashCode</div><div>    其实我们打印独享，往往关心的是对象中的数据是多少，使用Object的toString方法<br/></div><div>2、对象的比较操作：</div><div>    ==：对于基本数据类型来说比较的是值<br/></div><div>            对于引用数据类型来说比较的是内存中的地址值<br/></div><div>            每次使用new关键字都表示在堆中新开辟一块空间，不同的内存空间，地址值不同<br/></div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">需求：如果对象拥有完全相同的数据，我就想让他们相等</span>，使用Obiect类中的equals方法</div><div>3、对象的生命周期：</div><div>    对象什么时候出生：每次使用new关键字的时候，就会在内存开辟新的空间，此时对象存在了<br/></div><div>    对象的结束：当堆中的对象，没有被任何变量所引用，此时该对象就成了垃圾，就等待垃圾回收器（GC）来回收该垃圾，当被回收的时候对象被销毁了，对象的生命结束了。回收垃圾的目的是释放更多的内存空间<br/></div><div>4、匿名对象：没有名称的对象，创建对象之后没有赋给某一个变量</div><div>    new Servant();//匿名对象，匿名对象只是在堆中开辟一块新的内存空间，但是没有把该空间地址赋给任何变量</div><div>    因为没有名称，匿名对象只能使用一次（new Servant().name="a”;），一般把匿名对象作为方法的实参传递</div><hr/><div>//菲佣类型／描述了菲佣对象／包括菲佣的状态和行为</div><div>class Servant{</div><div>    String name;//姓名</div><div>    int age;//年龄</div><div><br/></div><div>    void shopping(){</div><div>        System.out.println("买菜");</div><div>    }</div><div>    void cook(){</div><div>        System.out.println("做饭");</div><div>    }</div><div>    void wash(){</div><div>        System.out.println("洗碗");</div><div>    }</div><div>}</div><div>//工程师</div><div>class Coder{</div><div>    void coding(){</div><div>        System.out.println("疯狂写代码");</div><div>    }</div><div>}</div><div>//Servant类的测试类</div><div>public class ServantDemo{</div><div>    public static void main(String[] args){</div><div>        //创建出一个菲佣对象,s1就表示Servant对象</div><div>        Servant s1=new Servant();</div><div>        //给菲佣s1起名和设置年龄</div><div>        s1.name="小丽";</div><div>        s1.age=18;</div><div><br/></div><div>        Servant s2=new Servant();</div><div>        //给菲佣s1起名和设置年龄</div><div>        s2.name="lucy";</div><div>        s2.age=12;</div><div><br/></div><div>        Servant s3=new Servant();</div><div>        //给菲佣s1起名和设置年龄</div><div>        s3.name="lily";</div><div>        s3.age=13;</div><div>        System.out.println(s1);</div><div>        System.out.println(s1==s2);</div><div>        </div><div>        /*</div><div>        System.out.println(s1.name+","+s1.age);</div><div>        //调用小丽的买菜，做饭，洗碗的功能</div><div>        s1.shopping();</div><div>        s1.cook();</div><div>        s1.wash();</div><div><br/></div><div>        //调用程序猿写代码的功能</div><div>        //创建一个coder的对象来写代码    </div><div>        Coder c1=new Coder();</div><div>        c1.coding();</div><div>        */</div><div><br/></div><div>    }</div><div>}</div><div>    <br/></div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>对象的创建和调用方法以及操作字段</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079970,103.851720"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>1、根据类来创建对象的语法：</div><div><span>    <span>   类名 变量= new 类名();</span></span><br/></div><div>2、给字段设置值：</div><div><span>    <span>    对象变量：字段名=该类型的值；</span></span><br/></div><div>3、获取字段的值</div><div><span>    <span>    该字段类型 变量=对象变量.字段值；</span></span><br/></div><div><span><span>4、通过对象调用方法</span></span></div><div><span><span><span>    <span>    对象变量.方法（实参）；</span></span><br/></span></span></div><hr/><div>//菲佣类型／描述了菲佣对象／包括菲佣的状态和行为</div><div>class Servant{</div><div>    String name;//姓名</div><div>    int age;//年龄</div><div><br/></div><div>    void shopping(){</div><div>        System.out.println("买菜");</div><div>    }</div><div>    void cook(){</div><div>        System.out.println("做饭");</div><div>    }</div><div>    void wash(){</div><div>        System.out.println("洗碗");</div><div>    }</div><div>}</div><div>//工程师</div><div>class Coder{</div><div>    void coding(){</div><div>        System.out.println("疯狂写代码");</div><div>    }</div><div>}</div><div>//Servant类的测试类</div><div>public class ServantDemo{</div><div>    public static void main(String[] args){</div><div>        //创建出一个菲佣对象,s1就表示Servant对象</div><div>        Servant s1=new Servant();</div><div>        //给菲佣s1起名和设置年龄</div><div>        s1.name="小丽";</div><div>        s1.age=18;</div><div><br/></div><div>        System.out.println(s1.name+","+s1.age);</div><div>        //调用小丽的买菜，做饭，洗碗的功能</div><div>        s1.shopping();</div><div>        s1.cook();</div><div>        s1.wash();</div><div><br/></div><div>        //调用程序猿写代码的功能</div><div>        //创建一个coder的对象来写代码    </div><div>        Coder c1=new Coder();</div><div>        c1.coding();</div><div>    }</div><div>}</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>类的定义</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079957,103.851704"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>类的定义：</div><div><br/></div><div>[修饰符] class 类名</div><div>{</div><div>    0～N个成员变量（字段／Field），不要叫属性（JavaBean中特殊的一种成员）</div><div>    0～N个方法</div><div>}</div><hr/><div>定义类的注意：</div><div>1、如果类使用了public修饰符，必须保证当前文件名称与类名相同</div><div>2、类名使用名词表示，类表示某一类事物，首字母大写，如果多个单词组成使用驼峰表示法</div><div>    如：EmployeeAdvanceSetting.</div><div>3、在面向对象的学习过程中，各位定义类的时候，专门为描述对象提供一个类，该类不需要main方法，我们专门再定义一个测试类／演示类来运行程序</div><hr/><div>//菲佣类型／描述了菲佣对象／包括菲佣的状态和行为</div><div>class Servant{</div><div>    String name;//姓名</div><div>    int age;//年龄</div><div><br/></div><div>    void shopping(){</div><div>        System.out.println("买菜");</div><div>    }</div><div>    void cook(){</div><div>        System.out.println("做饭");</div><div>    }</div><div>    void wash(){</div><div>        System.out.println("洗碗");</div><div>    }</div><div>}</div><div><br/></div><div>//Servant类的测试类</div><div>public class ServantDemo{</div><div>    public static void main(String[] args){</div><div>        System.out.println("Hello");</div><div>    }</div><div>}</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>对象和类的关系</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079957,103.851704"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>对象可以定义成包含状态和行为的一个实体，对象（obiect）也称为实例（instance）</div><div><br/></div><div>什么是实体：存在于现实世界中并且可以与其他物体区分开来的物体，实际存在的个体。</div><div><hr/>对象：</div><div>对象是人们要进行研究任何事物，一切事物都可以认为是对象</div><div>对象具有状态和行为：</div><div>对象具有状态，比如姓名，年龄，性别等</div><div>对象还有行为，比如吃饭，睡觉，写代码等</div><div><br/></div><div>通过对多个同类型的对象分析，我们可以把对象抽象成类</div><div><hr/>类：</div><div>具有相同特性（状态）和行为（功能）的对象的抽象就是类。因此，对象的抽象就是类，类的具体化就是对象，也可以说类的实例是对象，类实际上是一种数据类型</div><div>类具有特性，对象的状态，用成员变量来描述</div><div>类具有功能，对象的行为，用方法来描述</div><div><hr/>什么是类：类是对象的类型／模版。创建一个对象，就是使用一个类作为创建该对象的基础</div><div>描述类少不了对象，相反，描述对象也少不了类</div><div>不过在面向对象编程里，我们肯定是先有类的，如果没有类，对象就没法是实例化</div><div><hr/>对象是类的实例，类是对象的模版</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>理解什么是抽象</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079926,103.851674"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>1、封装</div><div>2、继承</div><div>3、多态</div><div>4、抽象</div><div><hr/>什么是抽象：从特定的角度出发，从已经存在的一些食物中抽取我们所关注的特性、行为，从而形成一个新的事物的思维过程，是一种复杂到简洁的思维方式</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>软件设计之面向对象</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079938,103.851684"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>面向对象：一种基于面向过程的新的编程思想，顾名思义该思想就是站在对象的角度思考问题，我们把多个功能合理的放到不同的对象里，强调的是具备某种功能的实体</div><div>具备某种功能的实体，称为对象</div><div>面向对象的最小单元是：类</div><div><hr/>面向对象更佳符合我们常规的思维方式，稳定性好，可用性强，易于开发大型软件产品，有良好的可读性，</div><div>在软件工程上，面向对象可以使工程更加模块化，实现更低的耦合和更高的内聚</div><div><br/></div><div>三大特征：</div><div>1、封装（Encapsulation）</div><div>2、继承（Inheritance）</div><div>3、多态（Polymorphism)</div><div>封装是将对象的实现细节隐藏起来，然后通过公共的方法来向外暴露该对象的功能</div><div>继承是面向对象实现软件复用的重要手段，当子类继承父类后，子类是一种特殊的父类，能直接或间接获得父类里的成员</div><div>多态是可以直接把字类对象赋给父类变量，但是运行的时候依然表现出子类的行为特征，这意味着同一类型的对象在运行的时候可能表现出不同的行为特征</div><div>注意：</div><div>千万不要误解为面向对象一定就优于面向过程的设计</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>软件设计之面向过程</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079977,103.851739"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>软件的开发方式：</div><div><span>    1、面向过程的开发</span><br/></div><div><span>    2、面向对象的开发</span></div><div><span><hr/>面向过程：一种较早的编程思想，顾名思义就是站在过程的角度思考问题，强调的就是功能行为，即先干啥后干啥。而每一个功能我们都使用函数（类似于方法）把这些步骤一步步实现，使用的时候依次调用函数就可以了</span></div><div><hr/>面向过程的设计：最小的程序单元是函数，每个函数负责完成某一个功能，用以接受输入数据，函数对输入数据进行处理，然后输出结果数据。</div><div>整个软件是由一个个的函数组成，其中作为程序入口的函数称之为主函数，主函数依次调用其他函数，普通函数之间可以相互调用，从而实现整个系统功能。</div><div><hr/>面向过程存在的缺陷：</div><div>面向过程的设计是采用置顶而下的设计方式，在设计阶段就需要考虑每一个模块应该分解成哪些子模块，每个子模块又细分为更小的子模块，如此类推，知道将模块细化为一个个函数</div><div><br/></div><div>存在的问题：</div><div>1、设计不够直观，与人类的习惯思维不一致</div><div>2、系统软件的适应性差，可拓展性差，维护性低</div><div><br/></div><div>面向过程的最大问题在于随着系统的膨胀，面向过程无法应付，最终导致系统崩溃，为了解决这一种软件危机，我们提出面向对象思想。</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>软件的生命周期和软件设计原则</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079977,103.851739"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>软件生命周期：软件的产生直到报废的整个过程</div><div>软件生命周期内有：问题定义，可行性分析，总体描述，系统设计，编码，调试与测试，验收与运行，维护升级，废弃</div><div>1、问题的定义与规划：主要确定软件的开发目标及可行性</div><div>2、需求分析：确定软件开发可行的情况下，对软件的各功能进行详细的分析，打下基础</div><div>3、软件设计：根据需求分析的结果，把软件系统分为大大小小的多个模块，设计出每一个模块的框架结构，如系统框架设计，数据库设计等</div><div>4、程序编码：把软件设计的结果转换成计算机可运行的程序代码，制定统一，符合标准的编写规范，以保证程序的可读性，易维护性，提高程序的运行效率</div><div>5、软件测试：进行严密测试，发现问题并加以纠正</div><div>6、运行维护：安装部署软件系统，修复软件中的bug和升级系统，软件维护包括纠错性维护和改进性维护两个方面</div><div><br/></div><div>软件设计原则：</div><div>1、可重用性：遵循DRY原则，减少软件中重复代码</div><div>2、可拓展性：当软件要增加新功能时，能够在现有的架构上方便地创建新的模块，而不用改变现有模块</div><div>3、可维护性：当用户需求发生变化的时候，只需要修改局部的模块中的少量代码即可</div><div><hr/>对模块的要求</div><div>1、结构稳定性：把一个模块划分为小模块的时候，设计合理，使得系统结构健壮</div><div>2、可拓展性</div><div>3、可组合性：若干模块经过组合，形成大系统，模块的可组合性提高软件的可重用和可维护性</div><div>4、高内聚性：内聚，强调一个模块内的功能练习，每个模块只完成特定功能，不同模块之间不会有功能的重叠，高内聚性可以提高软件的可重用性和可维护性</div><div>5、低耦合性：耦合，强调的是多个模块之间的联系，模块之间互相独立，修改某一个模块，不会影响到其他模块，低耦合性提高了软件的可维护性</div><div><br/></div></body></html>

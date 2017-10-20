@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 6.12.3 (455521)"/><meta name="altitude" content="1529.171508789062"/><meta name="author" content="923435274@qq.com"/><meta name="created" content="2017-07-02 00:37:33 +0000"/><meta name="latitude" content="36.07995358891083"/><meta name="longitude" content="103.8516869636153"/><meta name="source" content="desktop.mac"/><meta name="updated" content="2017-07-06 02:39:56 +0000"/><title>第四单元笔记</title></head><body>
+
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>元素出现索引（第一次／最后一次）（线性搜索）</h1>
+  </td></tr>
+</table>
+<div>int[] arr={10,20,30,10,50,-30,10}</div><div>获取元素10在arr数组中第一次出现的索引（indexOf）：0</div><div>获取元素10在arr数组中最后一次出现的索引（lastIndexOf）:6</div><div><hr/><br/></div><div>public class ArraySearchDemo{</div><div>    public static void main(String[] args){</div><div>        int[] arr={10,20,30,10,50,-30,10};</div><div>        int beginIndex=ArraySearchDemo.indexOf(arr,20);</div><div>        System.out.println(beginIndex);</div><div>        int lastIndex=ArraySearchDemo.lastIndexOf(arr,10);</div><div>        System.out.println(lastIndex);</div><div>    }</div><div>    /*</div><div>        查询key元素在arr数组中第一次出现的位置</div><div>        参数：</div><div>            arr：表明从哪一个数组中去做查询</div><div>            key：当前去查询的元素</div><div>        返回：如果key存在于arr数组中，则返回第一次出现的索引</div><div>            key不存在于arr数组中，返回-1</div><div><br/></div><div>    */</div><div>    static int indexOf(int[] arr,int key){</div><div>        for(int index=0;index&lt;arr.length;index++){</div><div>            if(arr[index]==key){</div><div>                return index;</div><div>            }</div><div>        }</div><div>        return -1;</div><div>    }</div><div>    static int lastIndexOf(int[] arr,int key){</div><div>        for(int index=arr.length-1;index&gt;=0;index--){</div><div>                if(arr[index]==key){</div><div>                    return index;</div><div>                }</div><div>            </div><div>        }    </div><div>        return -1;</div><div>    }    </div><div>}</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>逆序排列数组元素</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079965,103.851702"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>原数组：[A, B, C, D, E]</div><div>逆序操作</div><div>新数组：[E, D, C, B, A</div><div><hr/></div><div>//逆序排列</div><div>    static String[] reverse(String[] oldArr){</div><div>        //创建一个新数组来储存颠倒后的元素</div><div>        String[] newArray=new String[oldArr.length];</div><div>        for(int index=oldArr.length-1;index&gt;=0;index--){</div><div>            newArray[oldArr.length-1-index]=oldArr[index];</div><div>        }</div><div>        return newArray;</div><div>    }</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>按格式打印数组</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079963,103.851729"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>直接打印数组饿时候，打印出来的是hashcode值</div><div>我们要打印的时候打印出数组中的元素</div><div><hr/></div><div>static void printArray(String[] arr){</div><div>        String ret="[";</div><div>        for(int index=0;index&lt;arr.length;index++){</div><div>            ret=ret+arr[index];</div><div>            //如果当前index不是最后一个索引，则拼接“， ”</div><div>            if(index!=arr.length-1){</div><div>                ret=ret+", ";</div><div>            }</div><div>            </div><div>        }</div><div>        ret=ret+"]";</div><div>        System.out.println(ret);</div><div>    }</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>获取数组最大和最小元素</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079968,103.851705"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>public class ArrayOptrateDemo2{</div><div>    //获取数组最大元素</div><div>    static int getMax(int[] nums){</div><div>        int max=nums[0];</div><div>        for(int index=0;index&lt;nums.length;index++){</div><div>            if(nums[index]&gt;max){</div><div>                max=nums[index];//就把最大值，存储在max变量值</div><div>            }</div><div>        }</div><div>        return max;</div><div>    }</div><div>    //获取数组最小值</div><div>    static int getMin(int[] nums){</div><div>        int min=nums[0];//假设第一个元素是最小值</div><div>        for(int index=0;index&lt;nums.length;index++){</div><div>            if(nums[index]&lt;min){</div><div>                min=nums[index];//就把最小值，存储在min变量值</div><div>            }</div><div>        }</div><div>        return min;</div><div>    }</div><div>    public static void main(String[] args){</div><div>        </div><div>        int[] nums= new int[]{10,-3,5,0,2,1};</div><div>        int max=ArrayOptrateDemo2.getMax(nums);</div><div>        int min=ArrayOptrateDemo2.getMin(nums);</div><div>        System.out.println(max);</div><div>        System.out.println(min);</div><div>        System.out.println(ArrayOptrateDemo2.getMin(nums));</div><div>    }</div><div>}</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>操作数组的常见异常</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079961,103.851714"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>1、NullPointerException：空指针异常（空引用）</div><div>        当数组还未初始化，就直接操作数组。</div><div>        bs=null;</div><div>        System.out.println(bs.length);</div><div>2、ArrayIndexOutOfBoundsException：数组索引越界异常</div><hr/><div>public class ArrayOptrateDemo1{</div><div>    </div><div>    public static void main(String[] args){</div><div>        /*</div><div>            NullPointerException：空指针异常（空引用）</div><div>        当数组还未初始化，就直接操作数组。</div><div>        */</div><div>        bs=null;</div><div>        System.out.println(bs.length);</div><div>        /*</div><div>            ArrayIndexOutOfBoundsException：数组索引越界异常</div><div>        *／</div><div>        int[] nums= new int[]{1,3,5,7,9};</div><div>        System.out.println("数组的最后一个元素:"+nums[5]);</div><div>    }</div><div>}</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>获取-设置-遍历元素</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079977,103.851745"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>1、数组的基本操作：<br/></div><div><span><span>    <span>    </span></span>获取元素：元素类型 变量=数组名[index];</span><br/></div><div>        设置元素：数组名[index]=值;<br/></div><div><span><span><span><span>    <span>    遍历元素：建议使用for循环，事先知道循环的次数</span></span><br/></span></span></span></div><div><span>    <span>    数组长度：数组名.length; length是属性，不是方法</span></span><br/></div><div><span><span><span>    <span>    索引范围：从0开始，逐一递增。[0,数组名.length-1]</span></span><br/></span></span></div><div><span><span><span><span><br/></span></span></span></span></div><div>//数组的基本操作</div><div>public class ArrayOptrateDemo1{</div><div>    </div><div>    public static void main(String[] args){</div><div>        int[] nums= new int[]{1,3,5,7,9};</div><div>        System.out.println("数组的长度:"+nums.length);</div><div>        System.out.println("数组的第一个元素:"+nums[0]);</div><div>        System.out.println("数组的最后一个元素:"+nums[4]);</div><div>        //修改nums数组的第一个元素</div><div>        nums[0]=100;</div><div>        System.out.println("数组的第一个元素:"+nums[0]);</div><div>        System.out.println("------------------------");</div><div>        for(int index=0;index&lt;nums.length;index++){</div><div>            System.out.println(nums[index]);</div><div>        }</div><div><br/></div><div>        char[] bs=new char[3];</div><div>        for(int index=0;index&lt;bs.length;index++){</div><div>            System.out.println(bs[index]);</div><div>        }</div><div>    }</div><div>}</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>数组的动态初始化和内存分析</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079974,103.851713"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>数组的动态初始化操作：</div><div>    由我们来设置数组的元素个数（数组长度），而每个数组元素的初始值由系统决定</div><div>语法：</div><div>    数组元素类型[] 数组名=new 数组元素类型[length];</div><div>    比如：</div><div>    int[] ages=new int[100];<br/></div><hr/><div>什么时候使用静态初始化，什么时候使用动态初始化：</div><div>当我们事先知道，需要存储哪些数据的时候，选用静态初始化</div><div>当我们事先不知道，需要存储哪些数据的时候，只能使用动态初始化</div><div><br/></div><div><hr/></div><div>/*</div><div>    数组的动态初始化操作：</div><div>    由我们来设置数组的元素个数（数组长度），而每个数组元素的初始值由系统决定</div><div>*/</div><div>public class ArrayInitDemo2{</div><div>    </div><div>    public static void main(String[] args){</div><div>        int[] nums=new int[3];</div><div>        System.out.println(nums.length);</div><div>        nums=new int[5];</div><div>        System.out.println(nums.length);</div><div>    }</div><div>}</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>数组的静态初始化和内存分析</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079997,103.851759"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>所谓初始化就是给数组的元素分配内存，并为每个元素赋初值</div><div>初始化数组的两种方式：</div><div>1、静态初始化</div><div>2、动态初始化</div><div>无论以哪种方式初始化数组，一旦初始化完成，数组的长度久固定了，不能改变，除非重新初始化，也就是所数组时定长的</div><div>    数组时定长的：数组一旦初始化成功，数组中的元素个数就已经固定了，不能更改，如果需要更改，只能重新做初始化</div><hr/><div>数组的静态初始化操作：</div><div>    特点：由我们自己为每个数组元素设置初始值，而数组的长度，而数组的长度由系统决定</div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">语法</span>：</div><div>    数组元素类型[ ] 数组名=new 数组元素类型[ ]{元素1，元素2，元素3.....}</div><div>    举例：</div><div>    Int[] numbers=new int[]{1,3,5,7,9};<br/></div><div>    简单写法,必须声明之后立即初始化，不能先声明再初始化<br/></div><div>    Int[] numbers={1,3,5,7,9};</div><hr/><div>内存分析</div><div>Int[] numbers=new int[]{1,3,5,7,9};</div><div><br/></div><div>1、声明int类型数组 nums；</div><div>        int[] nums；</div><div>2、初始化数组</div><div>        new int[]{1,3,5,7,9};<br/></div><div>3、把初始化的数据赋给nums变量</div><div><br/></div><div>new关键字：在堆空间开辟一块内存区域，用来存放数据</div><div>null：表示没有引用任何内存空间</div><hr/><div>/*</div><div>    语法：</div><div>    数组元素类型[ ] 数组名=new 数组元素类型[ ]{元素1，元素2，元素3.....}</div><div>    举例：</div><div>*/</div><div>public class ArrayInitDemo1{</div><div>    </div><div>    public static void main(String[] args){</div><div>        int[] nums={1,3,5,7,9};</div><div>        //简单写法int[] numbers={1,3,5,7,9};</div><div>        System.out.println(nums.length);//5</div><div>        nums=new int[]{2,4,8};</div><div>        System.out.println(nums.length);//3</div><div>    }</div><div>}</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>引出数组和数组定义</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079941,103.851687"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>注意：定义方法的形参时，最好不要超过5个</div><div><br/></div><div>什么是数组：一组数据，一堆数据</div><div><br/></div><div>数组=索引（index）+元素（element）</div><div><br/></div><div>基本数据类型：byte，short，int，long，char，boolean，float，double</div><div>引用数据类型：类，接口，数组</div><div><hr/>变量的定义：</div><div><span>    数据类型 变量名称；如：int age；</span><br/></div><div>数组的定义：</div><div><span>    方式1：数组元素的类型[ ] 数组名；如：int[ ] ages；（推荐,可以把int[ ]看成一种数据类型)</span><br/></div><div>    方式2：数组元素的类型 数组名[ ]；如：int ages[ ]；<br/></div><div><hr/><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">数组必须先初始化才可以使用，因为初始化表示在内存中分配空间</span></div><div><br/></div><div><br/></div><div>//数组的定义</div><div>public class ArrayDemo1{</div><div>    </div><div>    public static void main(String[] args){</div><div>        //表示一个变量</div><div>        int age;</div><div>        //表示全班同学的年龄</div><div>        int[] ages1;</div><div><br/></div><div>        int ages2[];</div><div>        //System.out.println(ages1);</div><div>    }</div><div>}</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>JVM的内存模型</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079926,103.851661"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div><img src="%E7%AC%AC%E5%9B%9B%E5%8D%95%E5%85%83%E7%AC%94%E8%AE%B0.resources/004lj3yugy6MgQUfyHs96&amp;690.png" height="350" width="590"/><br/></div><div>JVM内存划分，人为的根据不同内存空间的储存特点以及存储的数据：</div><div><br/></div><div>程序计数器：当前线程所执行的字节码的行号指示器</div><div>本地方法栈：为虚拟机使用的native方法服务</div><div><br/></div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">Java虚拟机栈</span>（last in first out LIFO）：描述java方法执行的内存模型，每个方法被执行的时候都会同时创建一个栈帧用于储存局部变量表、操作栈、动态链接、方法出口等信息</div><div><span>    每一个方法，创建一个栈帧，栈帧存放了当前方法的数据信息（局部变量）当方法调用完毕，该方法的栈帧就被销毁了</span><br/></div><div><br/></div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">java堆</span>：被所有线程共享的一块内存区域，在虚拟机启动时创建，所有的对象实例以及数组都要在堆上分配，使用new关键字久相当于在堆中开辟新的储存空间</div><div><br/></div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">方法区</span>：线程共享的内存区域，储存已被虚拟机加载的类信息、常量、静态变量及时编译器编译后的代码数据等（这个区域的内存回收目标主要是针对常量池的回收和对类型的卸载）</div><div><br/></div><div>GC（Garbage Collection）：垃圾回收器</div><div>java的自动垃圾回收机制：简单理解为，</div><div>程序员不需要再手动的去控制内存的释放。当JVM发觉内存资源紧张的时候，就会自动地去清理无用对象（没有被引用到的对象）所占用的空间</div><div><br/></div><div>数组／面向对象再讲</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>方法的递归操作</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079989,103.851761"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>recursion</div><div>斐波那契数列，其通项公式为：F（0）=0，F（1）=1，F（n）=F（n-1）+F（n-2），求F（5）的值，怎么做呢</div><div><br/></div><div>class RecursionDemo{</div><div>    public static void main(String[] args){</div><div>        int ret = fn(5);</div><div>        System.out.println(ret);</div><div>    }</div><div>    static int fn(int n){</div><div>        if(n==0){</div><div>            return 0;</div><div>        }else if(n==1){</div><div>            return 1;</div><div>        }else{//n不等于0</div><div>            return fn(n-1)+fn(n-2);</div><div>        }</div><div>    }</div><div>}</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>方法的重载（overload）设计</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079989,103.851761"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>需求1：在同一个类中，分别定义求两个整数，小数之和的方法</div><div>需求2：在同一个类中，分别打印String,int double,boolean类型的方法</div><div><br/></div><div>方法的重载定义：重载方法的定义是在同一个类中，某方法允许存在一个以上的同名方法，只要他们的参数列表不同即可</div><div><br/></div><div>方法重载的作用：屏蔽了同一功能的方法由于参数不同所造成方法名称不同的差异</div><div><br/></div><div>方法重载判断原则：“两同一不同”</div><div>两同：同类中，方法名相同</div><div>一不同：方法参数列表不同（参数类型，参数个数，参数顺序）；</div><div>        只要参数类型，参数个数，参数顺序有一个不同，参数列表就不存在</div><div>注意：方法重载荷方法的返回值类型无关，只是一般要求返回值类型一致，参数列表和参数的名称没关系，就是和形参没关系</div><div><br/></div><div>class OverloadDemo{</div><div>    static int getSum(int x,int y){</div><div>        return x+y;</div><div>    }</div><div>    static double getSum(double x,double y){</div><div>        return x+y;</div><div>    }</div><div>    public static void main(String[] args){</div><div>        getSum(1,2);</div><div>    }</div><div>}</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>如何设计方法</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079984,103.851730"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>如何定义方法：</div><div>1、到底需要定义什么功能方法</div><div>2、是否需要定义返回值类型</div><div>3、是否需要形式参数</div><div><hr/>1、是否需要定义返回值类型</div><div><span>    我们说方法其实就是在完成某一个功能，那么完成该功能之后，是否需要给调用者返回一个结果数据，如果不需要返回结果数据，此时使用void声明（无返回）</span><br/></div><div><span><span>    如果需要返回一个结果数据，我们就把该结果数据的类型作为方法的返回值类型</span><br/></span></div><div><span><span><span>    <span>    打印操作：在乎方法执行的过程，而不是结果，所以此时使用void声明</span></span><br/></span></span></div><div><span><span><span><span><span>    <span>    求两个数之和：此时我们在乎的是方法执行的过程，并且执行完毕之后，需要给调用者一个反馈</span></span><br/></span></span></span></span></div><div><span><span><span><span><span><span>2、是否需要形式参数</span></span></span></span></span></span></div><div><span>    该方法在完成该功能的过程之中，是否有未知的因素参与，如果有请作为参数传递，如果没有则没有形参</span><br/></div><div><span><span>    求两个数之和：这两个数到底是多少，其实对于方法来说是未知的，仅仅是调用者知道，而且不同的调用者传递不同的参数值</span><br/></span></div><div><hr/>针对于有返回的方法，调用者应该定义一个变量去接受返回的结果</div><div><span><span><hr/>A、无参无返回 B、有参无返回 C、无参有返回 D、有参有返回</span></span></div><div><br/></div><div><br/></div><div>//方法的定义和调用</div><div>public class MethodDemo2{</div><div>    //A、无参无返回</div><div>    //需求：定义一个方法，专门打印---------------------</div><div>    static void p(){</div><div>        System.out.println("---------------------");</div><div>    }</div><div>    //B、有参无返回</div><div>    //需求：打印任意值</div><div>    static void pValue(String val){</div><div>        System.out.println(val);</div><div>    }</div><div>    //C、无参有返回</div><div>    //需求：返回我的年龄</div><div>    static int getAge(){</div><div>        return 17;</div><div>    }</div><div>    //D、有参有返回</div><div>    //需求：求两个数之和：getSum</div><div>    static int getSum(int a,int b){</div><div>        return a+b;</div><div>    }</div><div>    public static void main(String[] args){</div><div>        MethodDemo2.p();//调用方法</div><div>        MethodDemo2.pValue("Hello");//传递Hello字符串</div><div>        //定义变量接受getAge返回的结果</div><div>        int age=MethodDemo2.getAge();</div><div>        System.out.println(age);</div><div>        //定义变量sum接收getSum之后的结果</div><div>        int sum=MethodDemo2.getSum(3,4);</div><div>        System.out.println(sum);</div><div>    }</div><div>}</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>方法中的术语</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079962,103.851713"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>[修饰符] 返回值类型 方法名称([形参1，2，3，4] ){</div><div><span>    方法体</span><br/></div><div><span><span>    如果方法需要调用者返回一个结果，此时使用return 值;</span><br/></span></div><div>}</div><div><br/></div><div>方法中的术语(public static void main(String[] args){})：</div><div><span>    修饰符：public，static等，static表示方法属于类，直接使用类名调用即可。现在都使用static修饰</span><br/></div><div><span><span>    返回值类型：方法其实是在完成一个功能，该功能操作完毕后，是否需要给调用者返回一个结果</span><br/></span></div><div><span><span><span>    <span>    <span>    <span>    <span>    <span>    <span>  如果不需要给调用者返回结果，此时使用关键字void来声明，无返回的意思</span></span></span></span></span></span></span><br/></span></span></div><div><span><span><span><span><span><span><span><span><span><span>    方法的名称：遵循标识符的规范，使用动词表示，首字母要小写，若是多个单词组成，使用驼峰表示法，以后的每一个单词首字母都大写。getEmployeeName</span></span></span></span></span></span></span></span></span></span></div><div><span>    形式参数：方法圆括号中的变量，仅仅只是占位而已，参数的名称其实无所谓，形式参数可以后多个</span><br/></div><div><span><span>    参数列表：参数列表==参数类型+参数个数+参数顺序</span><br/></span></div><div><span><span><span>    方法签名：方法签名==方法名称+方法参数列表（同一个类中，方法签名是唯一的，否则编译报错</span></span></span>）</div><div><span><span><span>    方法体：方法{}中的代码，表示具体表示该功能的代码</span></span></span></div><div><span><span><span><span>    返回值：在方法内部，使用return关键字</span><br/></span></span></span></div><div><span><span><span><span><span>    <span>    <span>    <span>    <span>   1、给调用者返回一个结果值，此时方法不能被void修饰</span></span></span></span></span><br/></span></span></span></span></div><div><span><span><span><span><span><span><span><span><span><span>    <span>    <span>    <span>    <span>   2、结束当前方法</span></span></span></span></span><br/></span></span></span></span></span></span></span></span></span></div><div><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span>    实际参数：调用者在调用某一个具体方法的时候，实际传递的参数值</span><br/></span></span></span></span></span></span></span></span></span></span></span></span></span></span></div><div><span><span><span><br/></span></span></span></div><div><span><span><span><br/></span></span></span></div><div><br/></div><div><span><span><span><span>    </span>方法调用者：在哪里调用某一个方法，那么哪里就是该方法的调用者</span><br/></span></span></div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>方法定义和基本调用操作</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079965,103.851734"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>方法定义，方法（Method），函数(function），其实就是指一个特定的功能操作</div><div>程序中完成独立功能，可重复使用的一段代码的集合</div><div>方法定义格式：</div><div><span>    [修饰符] 返回值的类型 方法名称([参数]）{</span><br/></div><div><span><span>    <span>    <span>    方法体</span></span></span><br/></span></div><div><span><span><span><span><span>    <span>    <span>    <span>   [return值];</span></span></span></span><br/></span></span></span></span></div><div>}</div><div><br/></div><div>方法必须要调用才能生效</div><div><span>    如果方法使用static修饰：</span></div><div><span><span>    <span>    此时我们使用方法所在类的名称，方法名（参数)</span></span><br/></span></div><div><span><span>    如果方法没有使用static修饰</span><br/></span></div><div><span><span>    <span>    此时我们得使用方法所在类的对象来调用（暂时不讨论，面向对象）</span></span><br/></span></div><div><span><span><span><br/></span></span></span></div><div>方法定义的位置：</div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">1、在类中定义，在java中最小的程序单元是类</span></div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">2、方法定义在其他方法之外，方法和方法是兄弟关系</span></div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">3、方法定义的先后顺序不影响</span></div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;"><br/></span></div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;">Main方法专门由JVM调用</span></div><div><span style="background-color: rgb(255, 250, 165);-evernote-highlight:true;"><br/></span></div><div>public class MethodDemo{</div><div>    //把共同的200行代码抽离到方法中</div><div>    static void dowork(){</div><div>        System.out.println("共同的200行代码");</div><div>    }</div><div>    public static void main(String[] args){</div><div>        System.out.println("代码片段A");</div><div>        MethodDemo.dowork();//调用方法</div><div>        System.out.println("代码片段B");</div><div>        </div><div>        System.out.println("代码片段C");</div><div>        </div><div>        System.out.println("代码片段D");</div><div>        </div><div>    }</div><div>}</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>引出方法</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079969,103.851774"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>循环操作：（while循环，do while循环，for循环）</div><div><span>   解决的是代码重复的问题，重复做某一件事情</span><br/></div><div><span><span>   此时的重复：有规律的，语句格式是相同的，有规律的</span></span></div><div><span style=""><font color="#ff2600">循环结构真的可以解决所有重复吗？</font></span></div><div>针对于某一种功能的重复操作，循环解决不了，此时得使用方法</div><div><br/></div><div><br/></div><div>开发遵循的原则之一：DRY原则：Don’t Repeat Yourself（不要重复你你自己的代码）</div><div>原因：重复意味着维护成本的增大</div></body></html>

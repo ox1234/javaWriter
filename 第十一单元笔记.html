@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 6.12.3 (455521)"/><meta name="altitude" content="1530.172607421875"/><meta name="author" content="923435274@qq.com"/><meta name="created" content="2017-08-05 00:49:02 +0000"/><meta name="latitude" content="36.07990021896131"/><meta name="longitude" content="103.851580725124"/><meta name="source" content="desktop.mac"/><meta name="updated" content="2017-08-11 05:28:21 +0000"/><title>第十一单元笔记</title></head><body>
+
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>常用类-数学相关类（Math-BigDecimal-BigInteger）</h1>
+  </td></tr>
+</table>
+<div>和数学相关的三个常用类：</div><div>1、Math：<span style="color: rgb(0, 0, 0); font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px;">Math</span><span style="color: rgb(0, 0, 0); font-family: -webkit-standard; font-size: medium; font-variant-caps: normal; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; float: none;"> 类包含用于执行基本数学运算的方法，如初等指数、对数、平方根和三角函数。都是静态方法，使用不多</span></div><div>2、BigDecimal：float和double都不能表示精确小数，此时使用BigDecimal，用于处理金钱和精度要求高的时候</div><div>3、BigInteger：表示大整型，如果两个long类型的最大值运算，结果long无法储存此时使用BigInteger</div><hr/><div>package com_520it_02_system;</div><div><br/></div><div>import java.math.BigDecimal;</div><div><br/></div><div>public class BigDecimalDemo {</div><div>    public static void main(String[] args) {</div><div>        //使用BigDecimal</div><div>        BigDecimal num1=new BigDecimal(0.09);</div><div>        BigDecimal num2=new BigDecimal(0.01);</div><div>        System.out.println(num1.add(num2));</div><div>        </div><div>        num1=new BigDecimal("0.09");</div><div>        num2=new BigDecimal("0.01");</div><div>        System.out.println(num1.add(num2));</div><div>    }</div><div>}</div><div><br/></div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>常用类-系统相关类（System-Runtime）</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079941,103.851626"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>讲解常用类主要是讲常用类中常用的方法</div><hr/><div>和系统相关的类：</div><div>    1、System：表示系统的意思</div><div>    2、Runtime：表示java运行的过程</div><hr/><div>一定得知道什么类中存在什么功能的方法</div><div><br/></div><div>意识：</div><div>当看API的时候，发现没有公共的构造器，但是方法又不是static修饰的，立马意识到：该类中至少有一个static方法适用于返回当前类对象——&gt;体现单例模式</div><hr/><div>package com_520it_02_system;</div><div><br/></div><div>import java.util.Arrays;</div><div><br/></div><div>public class SystemDemo {</div><div>    public static void main(String[] args) {</div><div>        //数组的拷贝操作</div><div>        int[] src={1,2,3,4,5,6,7,8,9,10};</div><div>        int[] dest=new int[10];</div><div>        System.out.println(Arrays.toString(dest));</div><div>        System.arraycopy(src, 2, dest, 5, 4);</div><div>        System.out.println(Arrays.toString(dest));</div><div>        //返回以毫秒为单位的当前时间</div><div>        long time=System.currentTimeMillis();//测试某一个操作的损耗时间</div><div>        System.out.println(time);</div><div>        //退出程序（JVM），一般的，传入0表示正常结束，其他表示异常结束</div><div>        System.exit(0);</div><div>        //强制运行垃圾回收器,一般不使用</div><div>        new SystemDemo();</div><div>        new SystemDemo();</div><div>        new SystemDemo();</div><div>        //System.gc();</div><div>        //</div><div>    }</div><div>}</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>制作java库文件（jar）和jar包使用</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079969,103.851712"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>rar：压缩文件</div><div>jar：java的压缩文件（<span style=""><font color="#0433ff">存储的是一份份字节码文件</font></span>）</div><div><span>    <span>    可运行的jar：做了一个GUI界面，希望双击就可以运行程序，使用工具把jar转换为exe格式</span></span><br/></div><div><span><span><span>        <font color="#0433ff">作为第三方的jar</font>：作为其他代码的支撑，一个插件</span><br/></span></span></div><div><hr/></div><div>jar就是很多字节码文件的集合，目的：给我们的项目提供支持</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>GUI简单操作和匿名内部类</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079962,103.851724"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>package com._520it.eclipse;</div><div>import java.awt.BorderLayout;</div><div>import java.awt.Button;</div><div>import java.awt.Frame;</div><div>import java.awt.TextField;</div><div>import java.awt.event.ActionEvent;</div><div>import java.awt.event.ActionListener;</div><div>import java.awt.event.WindowAdapter;</div><div>import java.awt.event.WindowEvent;</div><div><br/></div><div>public class GUIDemo {</div><div>    public static void main(String[] args){</div><div>        final Frame f=new Frame("GUI界面");</div><div>        //创建一个文本框</div><div>        final TextField textField=new TextField(30);</div><div>        //把文本框存放在窗口f的北部</div><div>        f.add(textField,BorderLayout.NORTH);</div><div>        //创建一个按钮</div><div>        Button btn=new Button("点击");</div><div>        f.add(btn);</div><div>        //给按钮一个点击时间</div><div>        btn.addActionListener(new ActionListener(){</div><div>            public void actionPerformed(ActionEvent e){</div><div>                String info=textField.getText();</div><div>                </div><div>                f.setTitle(info);</div><div>            }</div><div>        });</div><div>        f.pack();</div><div>        f.setVisible(true);</div><div>        </div><div>        f.addWindowListener(new WindowAdapter(){</div><div>            public void windowClosing(WindowEvent e){</div><div>                System.exit(0);//退出JVM</div><div>            }</div><div>        });</div><div>    }</div><div>}</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>为什么得有编码规范</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079986,103.851768"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>写代码：</div><div>1、明确需求，我要做什么</div><div>2、整理思路，我要怎么一步一步去实现功能</div><div>3、按照思路去编写代码</div><div>4、功能写完，一定要测试</div><div>5、总结，该功能是怎么做出来的，下一次遇到，我该怎么迅速解决</div><div><hr/>注重的编码规范（简单）：</div><div>起名：</div><div><span>    1、都得遵循标识符的规范</span><br/></div><div><span>    2、不能使用拼音，拼音首字母，使用英文单词，或者使用应为组合单词</span><br/></div><div><span><span>    3、采用驼峰表示法：使用组合单词的时候，以后的每一个单词的首字母都大写</span><br/></span></div><div><span><span><span>    <span>    EmployeeAdvanceSetting</span></span><br/></span></span></div><div><hr/></div><div>1、包名：</div><div><span>    package 域名代谢.模块名.组件;</span><br/></div><div><span><span>    package com_520it.pss.util</span><br/></span></div><div><span><span>    全部使用小写字母，作为java文件的第一行代码</span><br/></span></div><div>2、类名：</div><div><span>    使用名词，表示一类事物，首字母大写</span><br/></div><div><span><span>    如果我们在项目中，尽量不要使用JDK内置的类名，比如String，System类</span><br/></span></div><div>3、接口名</div><div><span>    使用形容词／副词／名词，首字母大写</span><br/></div><div><span><span>    在有的企业，习惯以大写I作为接口的前缀。IEmployeeDAO/IEmployeeService</span><br/></span></div><div>4、方法名</div><div><span>    使用动词或动词短语，首字母小写</span><br/></div><div>5、变量</div><div><span>    使用名词，首字母小写</span><br/></div><div>6、常量</div><div><span>    使用final修饰的变量</span></div><div><span><span>    全部使用大写字母组成，使用多个单词组合使用下划线分割</span><br/></span></div><div><span><span><span>    在方法中定义的final变量一般不使用大写</span><br/></span></span></div></body></html>

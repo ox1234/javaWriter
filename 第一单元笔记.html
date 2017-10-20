@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><meta name="exporter-version" content="Evernote Mac 6.12.3 (455521)"/><meta name="altitude" content="1528.7529296875"/><meta name="author" content="923435274@qq.com"/><meta name="created" content="2017-06-09 00:58:17 +0000"/><meta name="latitude" content="36.07995646294401"/><meta name="longitude" content="103.8516672177773"/><meta name="source" content="desktop.mac"/><meta name="updated" content="2017-06-29 01:25:40 +0000"/><title>第一单元笔记</title></head><body>
+
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>变量和常量</h1>
+  </td></tr>
+</table>
+<div>常量：程序中固定不变的值</div><div><br/></div><div>常量分类：<br/></div><div>1、字面量常量：字面量，就表示直接给出的一个值（可以是整数，小数，true，false等等），直接量</div><div>2、定义final变量</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>java中的语言分隔符和标志符</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079975,103.851641"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>分号（;）：语句的分割，表示一句话结束</div><div>花括号（{}）：表示一个代码块，是一个整体，花括号要成对使用</div><div>方括号（[ ]）：定义数组和访问数组元素时使用</div><div>圆括号（( )）：使用很广泛</div><div>圆点（.）：类和对象访问它的成员时使用</div><div>空格（ ）：将一整条语句分割为几段</div><div><br/></div><div>注意：必须都是半角下的英文符号</div><div>————————————————————————————</div><div>标志符：我们把这种增强程序阅读性而自定义的名称，称为标志符</div><div>标志符命名规则：</div><div>1、由字母、数字、下划线组成，但不能以数字开头（注：此处的字母可以是中文、日文等）</div><div>2、大小写敏感</div><div>3、不得使用java中的关键字与保留字</div><div>4、不用java中内置的类名作为自己的类名</div><div><br/></div><div>注意问题：类名首字母规范是大写</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>关键字与保留字</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.080014,103.851832"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>关键字：在编程语言中有一些事先定义的，有着特殊含义的单词</div><div>保留字：和关键词一样都是编程语言事先定义好的，只是说现在暂时没有特殊的用途，但说不定以后某天会突然被赋予意义和被使用到，因此被保留下来的单词，goto和const就是java的保留字</div><div><br/></div><div>注意：java无sizeof（既不是关键字也不是保留字）,goto,const关键字</div><div><span>    <span>    <span>   关键字都是小写</span></span></span><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>java的三大注释</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079987,103.851688"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>1、单行注释：// ; //注释信息，从//开始道本行结束的所有字符会被编译器忽略</div><div>2、多行注释：/* */; /*注释信息*/之间的所有字符会被编译器忽略</div><div>3、文档注释：/**  */;/**注释信息*/和多行注释一样，除此以外还可以专门生成文档信息API</div><div><br/></div><div>注意：多行注释和文档注释之间</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>基本语法</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079989,103.851701"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>java的基本语法：</div><div>1、java语言严格区分大小写</div><div>2、在一个java的源文件中可以定义多个类，但是只有一个类可以被定义为public，且public的类名必须和文件名相同</div><div><span><span>3、一个源文件中包含N个类时，成功编译后悔生成N份字节码文件，每个类都会生成一份单独的class文件</span></span></div><div><span><span>4、一个类必须运行，则必须拥有主方法，因为主方法时程序的入口</span></span></div><div><span><span><br/></span></span></div><div>编程建议：</div><div>1、一个java源文件只定义一个类，不同的类使用不同的源文件定义</div><div>2、将每个源文件中单独定义的类都定义为public的</div><div>3、保持java源文件的主文件名与源文件中的类名一致</div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>环境变量</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079970,103.851672"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>JAVA_HOME：指JDK的安装根目录</div><div>PATH：指java开发工具的位置</div><div>CLASSPATH：指定JVM到哪里去找字节码文件（.class）</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>java的编译和运行机制</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079986,103.851691"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>javac工具</div><div>语法：javac 源文件名称（带拓展名）</div><div>如：javac 123.java</div><div><br/></div><div>java工具（启动JVM，并执行某一份字节码）</div><div>语法：java 带有main方法的类名</div><div>如：java Hello</div><div><br/></div><div>结论：java语言是编译性语言，也是解释性语言。</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>搭建java的开发和运行环境</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079934,103.851572"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>bin：存放了java的操作工具，比如编译工具javac，启动JVM的java等。</div><div>db：存放了java测试的数据库derby，企业不用。</div><div>include：存放C++的头文件</div><div>jre：java的运行环境，里面有JVM</div><div>lib：运行和以来的核心库</div><div>src.zip：java的源代码</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>JDK-JRE-JVM概述</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079976,103.851695"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>JDK：java开发工具，包含开发java程序的人所有工具，JDK中包含JRE</div><div>JRE：java运行环境，如果要运行java程序，就需要JRE的支持，JRE里包含JVM</div><div>JVM：运行所有java程序的虚拟计算机，好比是街机优秀的模拟器</div><div>           JVM用于读取并处理编译过的与平台无关的字节码（class）文件，从而实现java的可移                       </div><div>           植性</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>java的跨平台性原理</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079962,103.851641"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>高级语言：</div><div><span>    <span>    </span>代码中：源代码</span><br/></div><div><span><span>    <span>    </span>存放代码的文件：源文件</span><br/></span></div><div>与平台无关的文件：字节码文件，class文件</div><div>java编译的工具；javac(和任何的平台无关，不能直接运行在mac、win、linux)</div><div>                               Java虚拟机(JVM)：可以识别字节码文件(虚拟机就是模拟器)</div><div>启动JVM的工具：java</div><div>class文件只能被JVM识别</div><div><br/></div><div>Java跨平台的原理：1、编译之后会生成与平台无关的字节码文件</div><div><span>    <span>    <span>    <span>    <span>    <span>    <span>    <span>    <span> 2、得来自不同平台的虚拟机（JVM）</span></span></span></span></span></span></span></span></span><br/></div><div><span><span><span><span><span><span><span><span><span><span>    <span>    <span>    <span>    <span>    <span>    <span>    <span>    <span> JVM不是跨平台的</span></span></span></span></span></span></span></span></span><br/></span></span></span></span></span></span></span></span></span></div><div><br/></div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>实现街机游戏的跨平台性</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.079848,103.851724"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div>使用街机游戏证明：</div><div>————————————————————————</div><div>游戏包：与平台无关，任何平台都无法直接运行游戏包</div><div>游戏模拟器：与平台有关</div><div>对于开发者只需要开发游戏包。</div><div><br/></div>
+
+<table bgcolor="#D4DDE5" border="0" width="100%">
+  <tr><td>
+    <h1>sun公司和java平台</h1>
+    <a href="http://maps.google.com/maps?z=6&amp;q=36.045918,103.848161"><b>Map</b></a><br/>
+  </td></tr>
+</table>
+<div><span style="color: rgb(102, 102, 102); font-family: '宋体 arial'; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: 12px; background-color: rgb(245, 247, 250); float: none;">1982年，Sun Microsystems公司诞生于美国斯坦福大学校园。Sun公司1986年上市，在NASDAQ的标识为SUNW。 2007年改为JAVA</span></div><div style="color: rgb(0, 0, 0); font-family: -webkit-standard; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px;"><span style="color: rgb(102, 102, 102); font-family: '宋体 arial'; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: 12px; background-color: rgb(245, 247, 250); float: none;">2009年4月20日,美国数据软件巨头甲骨文公司(Oracle)宣布以74亿元收购SUN公司,从此Java也有干爹了,在这个拼爹的时代java的发展前景毋庸置疑</span></div><div style="color: rgb(0, 0, 0); font-family: -webkit-standard; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px;"><br/></div><div style="color: rgb(0, 0, 0); font-family: -webkit-standard; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px;"><br/></div><div style="color: rgb(0, 0, 0); font-family: -webkit-standard; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px;"><span style="color: rgb(102, 102, 102); font-family: '宋体 arial'; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: 12px; background-color: rgb(245, 247, 250); float: none;">1999年6月，SUN公司发布Java的三个版本：标准版、企业版和微型版；2005年J2SE,J2EE,J2ME分别改名为JavaSE JavaEE JavaME;随着J2EE的发布,Java正式迎来了自己的"春天"</span></div><div style="color: rgb(0, 0, 0); font-family: -webkit-standard; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px;"><span style="color: rgb(102, 102, 102); font-family: '宋体 arial'; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: 12px; background-color: rgb(245, 247, 250); float: none;">Java SE(Java Platform Standard Edition):Java标准平台,他允许开发和部署在桌面,服务器,嵌入式环境和实时环境中使用的Java应用程序;JavaSE能为JavaEE和JavaME提供开发基础.</span></div><div style="color: rgb(0, 0, 0); font-family: -webkit-standard; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px;"><br/></div><div style="color: rgb(0, 0, 0); font-family: -webkit-standard; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px;"><br/></div><div style="color: rgb(0, 0, 0); font-family: -webkit-standard; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px;"><span style="color: rgb(102, 102, 102); font-family: '宋体 arial'; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: 12px; background-color: rgb(245, 247, 250); float: none;">Java EE(Java Platform Enterprise Edition):Java企业平台,可帮助开发和部署可移植,健壮,可伸缩且安全的服务器端Java应用程序,,如企业的应用系统ERP等.JavaEE是在JavaSE的基础上构建的,他提供web服务,组件模型,管理和通信API,可以用来实现企业级的面向服务体系结构(SDA)和Web等应用程序.</span></div><div style="color: rgb(0, 0, 0); font-family: -webkit-standard; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px;"><span style="color: rgb(102, 102, 102); font-family: '宋体 arial'; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: 12px; background-color: rgb(245, 247, 250); float: none;">Java ME(Java Platform Micro Edition):Java微型平台,也叫K-JAVA.用来开发移动设备和嵌入是设备(比如手机,PDA,电视机顶盒和打印机等.随着Android的迅猛发展,javaME现在使用的越来越少了,Android会逐渐取代JavaME的市场份额</span></div><div style="color: rgb(0, 0, 0); font-family: -webkit-standard; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px;"><span style="color: rgb(102, 102, 102); font-family: '宋体 arial'; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: 12px; background-color: rgb(245, 247, 250); float: none;">以Java作为开发语言的其他设备有很多,如:Android智能设备.</span></div><div><span style="color: rgb(102, 102, 102); font-family: '宋体 arial'; font-variant-caps: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: pre-wrap; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: 12px; background-color: rgb(245, 247, 250); float: none;">学习Java,我们都是从javaSE开始的,只有学号JavaSE才能很好的掌握JavaEE和Android的知识.对于Java的就业,很少有人从事单纯的JavaSE开发的,这不是Java的强势支出,我们应该面向市场广阔的JavaEE和Android方向</span></div></body></html>
